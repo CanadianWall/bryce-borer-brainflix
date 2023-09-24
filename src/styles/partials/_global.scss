@@ -1,0 +1,99 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-regular;
+    // overflow-x: hidden;  
+}
+
+//Page Header
+h1 {
+    font-size: 24px;
+    line-height: 32px;
+    font-family: $font-bold;
+    // font-weight: 700;
+    // margin: 24px 16px 16px 16px;
+
+    @include tablet {
+        font-size: 33px;
+        line-height: 44px;
+        font-family: $font-bold;
+    }
+}
+
+// Section Header
+h2 {
+    font-size: 12px;
+        line-height: 20px;
+        font-family: $font-bold;
+
+
+    @include tablet {
+        font-size: 12px;
+        line-height: 20px;
+        font-family: $font-bold;
+    }
+}
+
+// Subheader
+h3 {
+    font-size: 13px;
+        line-height: 18px;
+        font-family: $font-bold;
+
+    @include tablet {
+        font-size: 14px;
+        line-height: 22px;
+        font-family: $font-bold;
+    }
+}
+
+// Body Copy
+p {
+    font-size: 13px;
+        line-height: 18px;
+
+    @include tablet {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+// Labels and Buttons
+h4 {
+    font-size: 10px;
+    line-height: 20px;
+    font-family: $font-bold;
+
+    @include tablet {
+        font-size: 12px;
+        line-height: 20px;
+        font-family: $font-bold;
+    }
+}
+
+// a {
+//     text-decoration: none;
+//     color: $primary-light;
+// }
+
+// ul {
+//     list-style-type: none;
+//     padding: 0;
+//     margin: 0;
+// }
+
+.bold {
+    font-family: $font-bold;
+}
+
+
+// .card-divider{
+//     background-color: $secondary-inactive;
+//     height: 1px;
+//     width: 100%;
+// }
