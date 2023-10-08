@@ -1,6 +1,6 @@
-import './Comments.scss'
+import './NextVideo.scss'
 
-function Comments() {
+function NextVideo() {
     return (
       // JSX
          <header className="header">
@@ -17,4 +17,4 @@ function Comments() {
     );
   }
 
-  export default Comments;
+  export default NextVideo;

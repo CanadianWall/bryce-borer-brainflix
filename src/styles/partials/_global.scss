@@ -30,7 +30,7 @@ h2 {
     font-size: 12px;
         line-height: 20px;
         font-family: $font-bold;
-
+    margin:0;
 
     @include tablet {
         font-size: 12px;

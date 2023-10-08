@@ -3,7 +3,8 @@ import './app.scss';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Description from './components/Description/Description';
-import NextVideos from './components/NextVideos/NextVideos';
+import NextVideo from './components/NextVideo/NextVideo';
+import NextVideoSection from './components/NextVideoSection/NextVideoSection';
 import Comments from './components/Comments/Comments';
 
 
@@ -13,7 +14,8 @@ function App() {
       <Header/>
       <Hero/>
       <Description/>
-      <NextVideos/>
+      <NextVideo/>
+      <NextVideoSection/>
       <Comments/>
     </div>
   );
