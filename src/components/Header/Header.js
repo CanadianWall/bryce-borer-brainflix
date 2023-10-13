@@ -1,9 +1,9 @@
 import './Header.scss'
 // import "../../styles/partials/_global.scss"
-import muruge from "../../assets/images/Mohan-muruge.jpg"
-import play from "../../assets/icons/play.svg"
-import upload from "../../assets/icons/upload.svg"
-import search from "../../assets/icons/search.svg"
+import murugeAvatar from "../../assets/images/Mohan-muruge.jpg"
+import playIcon from "../../assets/icons/play.svg"
+import uploadIcon from "../../assets/icons/upload.svg"
+import searchIcon from "../../assets/icons/search.svg"
 
 function Header() {
     return (
@@ -12,7 +12,7 @@ function Header() {
             <div className="header__logo">
                 <div className="header__logo--wrapper">
                     <img className="header__logo--play"
-                        src={play}
+                        src={playIcon}
                         alt="play icon" />
                 </div>
                 <h2 className="header__logo--title">BrainFlix</h2>
@@ -24,20 +24,20 @@ function Header() {
                         type="text"
                         placeholder="         Search" />
                     <img className="header__content__search--icon"
-                        src={search}
+                        src={searchIcon}
                         alt="search icon" />
                     <img className="avatar avatar--mobile"
-                        src={muruge}
+                        src={murugeAvatar}
                         alt="mohan muruge" />
                 </div>
                 <div className="header__content__upload">
                     <button type="submit" className="header__content__upload__button">
                         <img className="header__content__upload__button--icon"
-                            src={upload}
+                            src={uploadIcon}
                             alt="upload button" />
                         UPLOAD</button>
                     <img className="avatar avatar--tablet"
-                        src={muruge}
+                        src={murugeAvatar}
                         alt="mohan muruge" />
                 </div>
             </div>

@@ -1,6 +1,6 @@
-import './NextVideo.scss'
+import './Videos.scss'
 
-function NextVideo() {
+function Videos() {
     return (
       // JSX
          <header className="header">
@@ -17,4 +17,4 @@ function NextVideo() {
     );
   }
 
-  export default NextVideo;
+  export default Videos;

@@ -1,0 +1,60 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    &__authorAndDate {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+
+        &__author {}
+
+        &__date {}
+    }
+
+    &__viewsAndLikes {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+
+        &__views {}
+
+        &__likes {}
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    &--divider {
+        height: 1.5px;
+        width: calc(100vw - 32px);
+        background-color: $secondary-silver;
+        margin: 0 auto;
+
+        &--mobile {
+            // display:flex;
+            background-color: red;
+            // @include tablet {
+            //     display: none;
+            // }
+        }
+    }
+}

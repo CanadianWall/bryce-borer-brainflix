@@ -1,6 +1,6 @@
-import './NextVideoSection.scss'
+import './NextVideoList.scss'
 
-function NextVideoSection() {
+function NextVideoList() {
     return (
       // JSX
          <header className="header">
@@ -17,4 +17,4 @@ function NextVideoSection() {
     );
   }
 
-  export default NextVideoSection;
+  export default NextVideoList;
