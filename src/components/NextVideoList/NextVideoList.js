@@ -1,20 +1,29 @@
 import './NextVideoList.scss'
+import VideoCard from '../VideoCard/VideoCard'
+import videoList from '../../data/videos.json';
+import { useState } from 'react'
 
-function NextVideoList() {
-    return (
-      // JSX
-         <header className="header">
-      <nav className="header__links header__links--left">
-        <a>Home</a> | <a>About</a> |
-        <a>Contact</a>
-      </nav>
-      <div className="header__logo">Logo</div>
-      <div className="header__links header__links--right">
-        <input className="search" placeholder="Search..." />
-        <p className="last-pressed"></p>
-      </div>
-    </header>
-    );
-  }
+function NextVideoList(props) {
+  const [videoContent, setVideo] = useState(videoList)
+  return (
+    // JSX
 
-  export default NextVideoList;
+    <section className="video-list">
+      {videoContent.filter((videoCard) =>{
+          return videoCard.id !== props.mainVideoId
+      }).map((videoCard, index) => (
+        <VideoCard
+        key = {index}
+        changeMainVideoData={props.changeMainVideoData}
+        videoTitle={videoCard.title} 
+        videoChannel={videoCard.channel}
+        videoImage={videoCard.image}
+        videoCardId={videoCard.id}
+        />
+      ))}
+    </section>
+
+  );
+}
+
+export default NextVideoList;

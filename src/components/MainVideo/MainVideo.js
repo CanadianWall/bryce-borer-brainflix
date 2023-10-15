@@ -1,12 +1,22 @@
 import './MainVideo.scss'
 
-function MainVideo() {
+function MainVideo(props) {
+  const { mainVideoData } = props
   return (
-    // JSX
-    <div className="MainVideo">
 
-    </div>
+    <section className="mainVideo">
+      <div className="mainVideo__video">
+        <video className="mainVideo__video"
+        controls
+        poster ={mainVideoData.image}
+        // src={mainVideoData.video}
+        >
+        </video>
+      </div>
+    </section>
   );
 }
 
 export default MainVideo;
+
+//<MainVideo mainVideoData = {mainVideoData}/>

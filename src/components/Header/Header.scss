@@ -13,7 +13,7 @@
     }
 
     &__content {
-
+margin-bottom: 80px;
         @include tablet {
             justify-content: space-evenly;
             flex-direction: row;
