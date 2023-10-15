@@ -15,8 +15,6 @@ h1 {
     font-size: 24px;
     line-height: 32px;
     font-family: $font-bold;
-    // font-weight: 700;
-    // margin: 24px 16px 16px 16px;
 
     @include tablet {
         font-size: 33px;
@@ -76,24 +74,8 @@ h4 {
     }
 }
 
-// a {
-//     text-decoration: none;
-//     color: $primary-light;
-// }
-
-// ul {
-//     list-style-type: none;
-//     padding: 0;
-//     margin: 0;
-// }
 
 .bold {
     font-family: $font-bold;
 }
 
-
-// .card-divider{
-//     background-color: $secondary-inactive;
-//     height: 1px;
-//     width: 100%;
-// }

@@ -1,7 +1,7 @@
 import './VideoCard.scss'
 
 function VideoCard(props) {
-
+// console.log(props.videoTitle)
   return (
 
     <div className="videoCard"

@@ -1,0 +1,27 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.comment {
+    &__button {
+        background-color: $primary-blue;
+        // background-color: #0095FF;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        width: 95%;
+        margin: 0;
+        justify-content: center;
+
+        @include tablet {
+            margin: 0 $mobile-margin;
+            width: 200px;
+        }
+
+        &--icon {
+            display: flex;
+        }
+    }
+}

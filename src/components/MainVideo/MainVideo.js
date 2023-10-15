@@ -18,5 +18,3 @@ function MainVideo(props) {
 }
 
 export default MainVideo;
-
-//<MainVideo mainVideoData = {mainVideoData}/>
