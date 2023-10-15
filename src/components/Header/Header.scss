@@ -67,9 +67,8 @@ margin-bottom: 80px;
             }
 
             &--box {
-                border-radius: 4px;
-                border-color: $secondary-silver;
-                border-width: 2px;
+                border-radius: 5px;
+                border: 1.5px solid $secondary-silver;
                 background-color: $secondary-light;
                 color: $secondary-dark;
                 height: 40px;

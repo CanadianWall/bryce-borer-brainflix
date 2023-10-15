@@ -19,10 +19,14 @@ function Comment(props) {
 
 function formatDate(oldDate) {
     const newDate = new Date(oldDate);
-    const day = newDate.getDate();
-    const month = newDate.getMonth() + 1;
+    const day = pad(newDate.getDate());
+    const month = pad(newDate.getMonth() + 1);
     const year = newDate.getFullYear();
     return `${month}/${day}/${year}`;
-}
+  }
+  
+  function pad(n) {
+    return (n < 10) ? ("0" + n) : n;
+  }
 
 export default Comment

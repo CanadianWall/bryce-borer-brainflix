@@ -1,5 +1,4 @@
 import './Header.scss'
-// import "../../styles/partials/_global.scss"
 import murugeAvatar from "../../assets/images/Mohan-muruge.jpg"
 import playIcon from "../../assets/icons/play.svg"
 import uploadIcon from "../../assets/icons/upload.svg"

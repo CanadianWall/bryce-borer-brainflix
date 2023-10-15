@@ -1,6 +1,7 @@
 import commentIcon from "../../assets/icons/add_comment.svg"
 import './CommentSection.scss'
 import Comment from '../Comment/Comment'
+import murugeAvatar from "../../assets/images/Mohan-muruge.jpg"
 
 function CommentSection(props) {
 
@@ -13,34 +14,36 @@ function CommentSection(props) {
         }
         props.addComment(newComment);
     }
-
+    console.log(props.mainVideoData.length)
     return (
         <>
-            <form
-                className="card-form"
-                onSubmit={submitComment}>
-                <label
-                    className="card-form__title"
-                    htmlFor="title">
-                    Title:
-                </label>
-                <input
-                    name="title"
-                    id="title" />
-                <label
-                    className="card-form__content"
-                    htmlFor="content">
-                    Content:
-                </label>
-                <input
-                    name="content"
-                    id="content" />
-                <button className="comment__button">
-                    <img className="comment__button--icon"
-                        src={commentIcon}
-                        alt="comment button" />
-                    COMMENT</button>
-            </form>
+            <h3 className="comment-total">{props.mainVideoData.length} Comments</h3>
+            <div className="comment--wrapper">
+            <div className="comment--avatar">
+                <img className="avatar" src={murugeAvatar} alt="mohan muruge" />
+                </div>
+            <div className="comment">
+                <form
+                    className="comment__form"
+                    onSubmit={submitComment}>
+
+                    <label
+                        className="comment__form__content"
+                        htmlFor="content">
+                        JOIN THE CONVERSATION<br />
+                    </label>
+                    <input className="comment__form__input"
+                        name="content"
+                        id="content" />
+                    <button className="comment__button">
+                        <img className="comment__button--icon"
+                            src={commentIcon}
+                            alt="comment button" />
+                        COMMENT</button>
+                </form>
+                </div>
+            </div>
+            <div className="description--divider"></div>
 
             <section className="comment-list">
 
@@ -52,7 +55,7 @@ function CommentSection(props) {
                         commentContent={commentCard.comment}
                         commentLikes={commentCard.likes}
                         commentDate={commentCard.timestamp}
-                    /> 
+                    />
                 ))}
             </section>
         </>

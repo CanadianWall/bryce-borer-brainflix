@@ -1,22 +1,35 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
+
+.description--wrapper{
+    
+    @include desktop{
+        width:95%;
+    }
+}
 .description {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 
+    
     &__authorAndDate {
         display: flex;
         flex-direction: column;
 
         @include tablet {
             flex-direction: row;
+            width: 40%;
+            justify-content: space-between;
         }
 
-        &__author {}
+        &--author {}
 
-        &__date {}
+        &--date {
+            font-weight: 400;
+            color: $primary-silver;
+        }
     }
 
     &__viewsAndLikes {
@@ -27,12 +40,26 @@
             flex-direction: row;
         }
 
-        &__views {}
+        &__views {
+            display: flex;
+            color: $primary-silver;
+            &--icon{
+                margin-right:$mobile-margin;
+            }
+        }
 
-        &__likes {}
+        &__likes {
+            display: flex;
+            color: $primary-silver;
+            &--icon{
+                margin-right:$mobile-margin;
+            }
+        }
     }
 
-
+    &__content{
+        margin: $mobile-margin;
+    }
 
 
 
@@ -45,7 +72,7 @@
 
     &--divider {
         height: 1.5px;
-        width: calc(100vw - 32px);
+        width: 100%;
         background-color: $secondary-silver;
         margin: 0 auto;
 

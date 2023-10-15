@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './app.scss';
+import './App.scss';
 import Header from './components/Header/Header';
 import MainVideo from './components/MainVideo/MainVideo';
 import Description from './components/Description/Description';
@@ -21,12 +20,12 @@ function App() {
     <div className="App">
       <Header />
       <MainVideo mainVideoData={mainVideoData} />
-      <div className="video-content--wrapper">
-        <div className="video-content">
+      <div className="video-content">
+        <div className="video-content__main">
           <Description mainVideoData={mainVideoData} />
           <CommentSection mainVideoData={mainVideoData.comments} />
         </div>
-        <div className="next-videos">
+        <div className="video-content__next">
           <NextVideoList changeMainVideoData={changeMainVideoData} mainVideoId={mainVideoData.id} />
         </div>
       </div>

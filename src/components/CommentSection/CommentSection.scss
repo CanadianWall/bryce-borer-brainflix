@@ -1,19 +1,51 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
+
+.comment--wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-total{
+    margin-left: $mobile-margin;
+}
+
 .comment {
+    width: 100%;
+
+    &--avatar {
+        margin: $tablet-gutter $mobile-margin;
+    }
+
+    &__form {
+
+        &__content {
+            font-weight: 600;
+            color: $primary-silver;
+        }
+
+        &__input {
+            resize: none;
+            height: 200px;
+            width: 90%;
+            border: 1.5px solid $secondary-silver;
+            border-radius: 5px;
+        }
+    }
+
     &__button {
         background-color: $primary-blue;
-        // background-color: #0095FF;
         color: white;
         border: none;
-        border-radius: 6px;
+        border-radius: 5px;
         display: flex;
         align-items: center;
         height: 40px;
-        width: 95%;
-        margin: 0;
+        width: 91%;
+        margin: $mobile-margin 0;
         justify-content: center;
+
 
         @include tablet {
             margin: 0 $mobile-margin;
