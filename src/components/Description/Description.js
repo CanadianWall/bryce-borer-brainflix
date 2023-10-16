@@ -12,9 +12,9 @@ function Description(props) {
       <div className="description--divider"></div>
       <div className="description">
 
-        <div className="description__authorAndDate">
-          <h3 className="description__authorAndDate--author">By {mainVideoData.channel}</h3>
-          <h3 className="description__authorAndDate--date">{formatDate(mainVideoData.timestamp)}</h3>
+        <div className="description__author-and-date">
+          <h3 className="description__author-and-date--author">By {mainVideoData.channel}</h3>
+          <h3 className="description__author-and-date--date">{formatDate(mainVideoData.timestamp)}</h3>
         </div>
 
         <div className="description__viewsAndLikes">

@@ -11,12 +11,17 @@
 .description {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
 
+        @include tablet{
+            justify-content: space-between;
+        }
     
-    &__authorAndDate {
+    &__author-and-date {
+        margin-right:30%;
         display: flex;
         flex-direction: column;
+        // width:30%;
 
         @include tablet {
             flex-direction: row;
@@ -24,9 +29,12 @@
             justify-content: space-between;
         }
 
-        &--author {}
+        &--author {
+            // width: 100%;
+        }
 
         &--date {
+            // width: 100%;
             font-weight: 400;
             color: $primary-silver;
         }

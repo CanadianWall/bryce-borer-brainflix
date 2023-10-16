@@ -9,6 +9,9 @@ function NextVideoList(props) {
     // JSX
 
     <section className="video-list">
+      <h3 className="video-list__title">
+    NEXT VIDEOS
+    </h3>
       {videoContent.filter((videoCard) =>{
           return videoCard.id !== props.mainVideoId
       }).map((videoCard, index) => (
@@ -21,6 +24,7 @@ function NextVideoList(props) {
         videoCardId={videoCard.id}
         />
       ))}
+      
     </section>
 
   );

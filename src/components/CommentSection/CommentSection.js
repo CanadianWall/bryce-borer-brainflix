@@ -43,7 +43,6 @@ function CommentSection(props) {
                 </form>
                 </div>
             </div>
-            <div className="description--divider"></div>
 
             <section className="comment-list">
 

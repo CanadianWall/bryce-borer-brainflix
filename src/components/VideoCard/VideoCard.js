@@ -4,19 +4,24 @@ function VideoCard(props) {
 // console.log(props.videoTitle)
   return (
 
-    <div className="videoCard"
+    <>
+    
+    <div className="video-card"
     onClick={() => props.changeMainVideoData(props.videoCardId)}
     >
-      <img className="videoCard__image" src={props.videoImage}/>
+      <img className="video-card__image" src={props.videoImage}/>
 
-      <div className="videoCard__title">
+      <div className="video-card__title-and-channel">
+      <div className="video-card__title-and-channel__title">
       {props.videoTitle}
       </div>
 
-      <div className="videoCard__channel">
+      <div className="video-card__title-and-channel__channel">
       {props.videoChannel}
       </div>
+      </div>
     </div>
+    </>
   );
 }
 

@@ -1,11 +1,32 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-.videoCard{
-
+.video-card{
+    height: 100px;
+    display:flex;
+    margin: $mobile-margin 0;
     &__image{
-        width: 150px;
+        background-color: $secondary-silver;
+        width: 25%;
+        height:100%;
         border-radius: 5px;
+        object-fit: cover;
+        margin: $mobile-margin;
+    }
+    &__title-and-channel{
+        display:flex;
+        flex-direction: column;
+        margin: $mobile-margin 8px;
+        justify-content: space-between;
+        height:100%;
+
+        &__title{
+            font-weight: 600;
+        }
+
+        &__channel{
+
+        }
     }
 }
 

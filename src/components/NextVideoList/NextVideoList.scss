@@ -1,0 +1,15 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.video-list{
+    
+    &__title{
+        margin: 0 $mobile-margin;
+        font-weight: 600;
+        color: $primary-silver;
+    }
+}
+
+
+// <section className="video-list">
+// <h3 className="video-list__title">
