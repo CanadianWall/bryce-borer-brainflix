@@ -9,6 +9,7 @@ function NextVideoList(props) {
     // JSX
 
     <section className="video-list">
+      <div className="video-list--divider"></div>
       <h3 className="video-list__title">
     NEXT VIDEOS
     </h3>

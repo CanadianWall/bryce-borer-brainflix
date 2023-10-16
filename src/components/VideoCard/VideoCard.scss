@@ -1,33 +1,44 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-.video-card{
-    height: 100px;
-    display:flex;
+
+.video-card {
+    height: 90px;
+    display: flex;
     margin: $mobile-margin 0;
-    &__image{
+
+    &__image {
         background-color: $secondary-silver;
-        width: 25%;
-        height:100%;
+        width: 140px;
+        min-width: 140px;
+
+        height: 100%;
         border-radius: 5px;
         object-fit: cover;
         margin: $mobile-margin;
     }
-    &__title-and-channel{
-        display:flex;
+
+    &__title-and-channel {
+        display: flex;
         flex-direction: column;
         margin: $mobile-margin 8px;
         justify-content: space-between;
-        height:100%;
+        height: 100%;
 
-        &__title{
+
+        &__title {
             font-weight: 600;
+            width: 100%;
+            margin: 0;
+
+            // width: 300px;
+            // overflow: hidden;
+            // white-space: nowrap;
+            // text-overflow: ellipsis;
         }
 
-        &__channel{
-
+        &__channel {
+            margin: 0;
         }
     }
 }
-
-//__image
