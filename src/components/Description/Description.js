@@ -14,23 +14,23 @@ function Description(props) {
 
         <div className="description__author-and-date">
           <h3 className="description__author-and-date--author">By {mainVideoData.channel}</h3>
-          <h3 className="description__author-and-date--date">{formatDate(mainVideoData.timestamp)}</h3>
+          <h5 className="description__author-and-date--date">{formatDate(mainVideoData.timestamp)}</h5>
         </div>
 
         <div className="description__viewsAndLikes">
-          <h3 className="description__viewsAndLikes__views">
+          <h5 className="description__viewsAndLikes__views">
             <img className="description__viewsAndLikes__views--icon"
               src={viewsIcon}
               alt="views icon" />
             {mainVideoData.views}
-          </h3>
+          </h5>
 
-          <h3 className="description__viewsAndLikes__likes">
+          <h5 className="description__viewsAndLikes__likes">
             <img className="description__viewsAndLikes__likes--icon"
               src={likesIcon}
               alt="likes icon" />
             {mainVideoData.likes}
-          </h3>
+          </h5>
         </div>
       </div>
       {/*Not sure why the mobile divider doesn't show up on the page*/}

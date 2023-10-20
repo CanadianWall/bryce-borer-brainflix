@@ -16,6 +16,13 @@
 
     &--avatar {
         margin: $tablet-gutter $mobile-margin;
+
+        @include desktop{
+            margin: $tablet-gutter calc($tablet-gutter*2) $tablet-gutter $tablet-gutter;
+
+        }
+
+
     }
 
     &__form {

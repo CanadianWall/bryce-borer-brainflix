@@ -6,6 +6,7 @@
     
     @include desktop{
         width:95%;
+        // margin-left:$desktop-margin;
     }
 }
 .description {
@@ -21,8 +22,7 @@
         margin-right:30%;
         display: flex;
         flex-direction: column;
-        // width:30%;
-
+        
         @include tablet {
             flex-direction: row;
             width: 40%;
@@ -31,12 +31,14 @@
 
         &--author {
             // width: 100%;
+            // font-family: $font-regular;
         }
 
         &--date {
             // width: 100%;
-            font-weight: 400;
-            color: $primary-silver;
+            // font-family: $font-regular;
+            // font-weight: 400;
+            // color: $primary-silver;
         }
     }
 
@@ -50,7 +52,7 @@
 
         &__views {
             display: flex;
-            color: $primary-silver;
+            // color: $primary-silver;
             &--icon{
                 margin-right:$mobile-margin;
             }
@@ -58,7 +60,7 @@
 
         &__likes {
             display: flex;
-            color: $primary-silver;
+            // color: $primary-silver;
             &--icon{
                 margin-right:$mobile-margin;
             }
@@ -66,17 +68,13 @@
     }
 
     &__content{
+        // margin: $mobile-margin;
         margin: $mobile-margin;
+        @include tablet{
+            margin: $mobile-margin 0;
+        }
+    
     }
-
-
-
-
-
-
-
-
-
 
     &--divider {
         height: 1.5px;

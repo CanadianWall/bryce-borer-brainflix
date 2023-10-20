@@ -1,6 +1,8 @@
 @use './variables' as *;
 @use './mixins' as *;
-@use './fonts' as *;
+// @use './fonts' as *;
+@use 'fonts';
+
 
 html,
 body {
@@ -43,6 +45,7 @@ h3 {
     font-size: 13px;
         line-height: 18px;
         font-family: $font-bold;
+        margin: $mobile-margin 0;
 
     @include tablet {
         font-size: 14px;
@@ -55,6 +58,7 @@ h3 {
 p {
     font-size: 13px;
         line-height: 18px;
+       
 
     @include tablet {
         font-size: 14px;
@@ -73,6 +77,12 @@ h4 {
         line-height: 20px;
         font-family: $font-bold;
     }
+}
+
+h5{
+    @extend p;
+    color:$primary-silver;
+    margin: $mobile-margin 0;
 }
 
 
