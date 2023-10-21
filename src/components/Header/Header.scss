@@ -11,7 +11,7 @@
         justify-content: space-between;
         flex-direction: row;
         height: 64px;
-        margin: 4px 0 8px 0;
+        margin: 4px 0 2px 0;
     }
 
     &__content {
@@ -60,6 +60,7 @@
         display: flex;
         height: 40px;
         flex-direction: column;
+        width: calc(100vw - 32px);
 
         @include tablet {
             flex-direction: row;
@@ -68,8 +69,10 @@
         &__search {
             display: flex;
             position: relative;
-            width: 90vw;
+            width:100%;
             justify-content: center;
+            align-items:center;
+            margin: 0 auto;
 
             @include tablet {
                 width: 300px;
@@ -81,7 +84,8 @@
                 background-color: $secondary-light;
                 color: $secondary-dark;
                 height: 40px;
-                width: 90vw;
+                
+                width: 90%;
 
                 @include tablet {
                     width: 300px;
@@ -92,43 +96,52 @@
                 position: absolute;
                 left: 11px;
                 top: 14px;
+                @include tablet {
+                    top: 12px;
+                }
             }
         }
 
         &__upload {
             display: flex;
-            margin: $mobile-margin 0;
+            margin: $mobile-margin auto;
             width: calc(100vw - 32px);
 
             @include tablet {
                 margin: 0 $mobile-margin;
-                width: 200px;
+                width: 230px;
             }
 
             &__button {
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0 auto;
+                height: 40px;
+                width: 100%;
+                
                 background-color: $primary-blue;
-                // background-color: #0095FF;
                 color: white;
                 border: none;
                 border-radius: 6px;
-                display: flex;
-                align-items: center;
-                height: 40px;
-                width: 95%;
-                margin: 0;
-                justify-content: center;
-
+                
                 @include tablet {
                     margin: 0 $mobile-margin;
-                    width: 200px;
+                    width: 300px;
                 }
 
+                &--text{
+                padding-right:calc(50% - 26px);
+                }
+
+                &--icon-wrapper{
+                    position: relative;
+                    left:3px;
+                }
                 &--icon {
-                    display: flex;
                 }
             }
         }
-
     }
 }
 
@@ -152,7 +165,7 @@
 
         @include tablet {
             display: flex;
-            margin-left: $mobile-margin;
+            margin:0;
         }
     }
 }

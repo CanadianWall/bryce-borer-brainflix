@@ -31,10 +31,17 @@ function Header() {
                 </div>
                 <div className="header__content__upload">
                     <button type="submit" className="header__content__upload__button">
+                        <div className="header__content__upload__button--icon-wrapper">
                         <img className="header__content__upload__button--icon"
                             src={uploadIcon}
                             alt="upload button" />
-                        UPLOAD</button>
+                        </div>
+                        
+                        <div className="header__content__upload__button--text">
+                            UPLOAD
+                            </div>
+                        
+                        </button>
                     <img className="avatar avatar--tablet"
                         src={murugeAvatar}
                         alt="mohan muruge" />

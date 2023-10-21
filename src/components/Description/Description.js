@@ -9,7 +9,7 @@ function Description(props) {
     // JSX
     <div className="description--wrapper">
       <h1 className="description--title">{mainVideoData.title}</h1>
-      <div className="description--divider"></div>
+      <div className="description--divider--mobile-only"></div>
       <div className="description">
 
         <div className="description__author-and-date">

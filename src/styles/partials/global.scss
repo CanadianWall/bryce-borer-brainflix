@@ -45,7 +45,7 @@ h3 {
     font-size: 13px;
         line-height: 18px;
         font-family: $font-bold;
-        margin: $mobile-margin 0;
+        margin: calc($mobile-margin/2) 0;
 
     @include tablet {
         font-size: 14px;
@@ -82,7 +82,7 @@ h4 {
 h5{
     @extend p;
     color:$primary-silver;
-    margin: $mobile-margin 0;
+    margin: calc($mobile-margin/2) 0;
 }
 
 
