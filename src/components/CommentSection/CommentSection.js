@@ -27,14 +27,17 @@ function CommentSection(props) {
                     className="comment__form"
                     onSubmit={submitComment}>
 
+                    <div className="comment__form__content--wrapper">
                     <label
                         className="comment__form__content"
                         htmlFor="content">
                         JOIN THE CONVERSATION<br />
                     </label>
-                    <input className="comment__form__input"
+                    <textarea className="comment__form__input"
                         name="content"
+                        placeholder="Add a new comment"
                         id="content" />
+                    </div>
                     <button className="comment__button">
                         <img className="comment__button--icon"
                             src={commentIcon}

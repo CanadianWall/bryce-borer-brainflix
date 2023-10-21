@@ -1,8 +1,6 @@
 @use './variables' as *;
 @use './mixins' as *;
-// @use './fonts' as *;
 @use 'fonts';
-
 
 html,
 body {
@@ -10,7 +8,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: $font-regular;
-    // overflow-x: hidden;  
+    color: $primary-dark;
 }
 
 //Page Header
@@ -29,9 +27,9 @@ h1 {
 // Section Header
 h2 {
     font-size: 12px;
-        line-height: 20px;
-        font-family: $font-bold;
-    margin:0;
+    line-height: 20px;
+    font-family: $font-bold;
+    margin: 0;
 
     @include tablet {
         font-size: 12px;
@@ -43,28 +41,33 @@ h2 {
 // Subheader
 h3 {
     font-size: 13px;
-        line-height: 18px;
-        font-family: $font-bold;
-        margin: calc($mobile-margin/2) 0;
+    line-height: 18px;
+    font-family: $font-demi;
+    margin: calc($mobile-margin/2) 0;
 
     @include tablet {
         font-size: 14px;
         line-height: 22px;
-        font-family: $font-bold;
+        font-family: $font-demi;
     }
 }
 
 // Body Copy
-p {
+p,
+textarea,
+textarea::placeholder, 
+label {
     font-size: 13px;
-        line-height: 18px;
-       
+    line-height: 18px;
+    font-family: $font-regular;
+    color: $secondary-dark;
 
     @include tablet {
         font-size: 14px;
         line-height: 22px;
     }
 }
+
 
 // Labels and Buttons
 h4 {
@@ -79,14 +82,10 @@ h4 {
     }
 }
 
-h5{
+// Grayed text
+h5 {
     @extend p;
-    color:$primary-silver;
+    color: $primary-silver;
     margin: calc($mobile-margin/2) 0;
+    font-weight: 400;
 }
-
-
-.bold {
-    font-family: $font-bold;
-}
-

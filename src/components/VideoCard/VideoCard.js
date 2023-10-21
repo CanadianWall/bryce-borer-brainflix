@@ -12,13 +12,13 @@ function VideoCard(props) {
         <img className="video-card__image" src={props.videoImage} />
 
         <div className="video-card__title-and-channel">
-          <h2 className="video-card__title-and-channel__title">
+          <h3 className="video-card__title-and-channel__title">
             {props.videoTitle}
-          </h2>
-
-          <h3 className="video-card__title-and-channel__channel">
-            {props.videoChannel}
           </h3>
+
+          <p className="video-card__title-and-channel__channel">
+            {props.videoChannel}
+          </p>
         </div>
       </div>
     </>

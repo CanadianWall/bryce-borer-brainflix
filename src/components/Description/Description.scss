@@ -19,7 +19,9 @@
     }
 
     &--title{
-        margin-bottom: 0;
+        @include tablet{
+            margin-bottom: 0;
+        }
     }
 
     &__author-and-date {
@@ -75,7 +77,7 @@
     }
 
     &__content {
-        margin: $mobile-margin;
+        margin: $mobile-margin 0;
 
         @include tablet {
             margin: $mobile-margin 0;

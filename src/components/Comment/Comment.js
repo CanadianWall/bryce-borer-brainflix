@@ -8,17 +8,17 @@ function Comment(props) {
             <div className="comment-card__avatar"></div>
             <div className="comment-card--wrapper">
             <div className="comment-card__top">
-                <div className="comment-card__top__name">
+                <h3 className="comment-card__top__name">
                     {props.commentName}
-                </div>
+                </h3>
 
-                <div className="comment-card__top__date">
+                <h5 className="comment-card__top__date">
                     {formatDate(props.commentDate)}
-                </div>
+                </h5>
             </div>
-            <div className="comment-card__content">
+            <p className="comment-card__content">
                 {props.commentContent}
-            </div>
+            </p>
             
             </div>
             

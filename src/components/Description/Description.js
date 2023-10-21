@@ -36,7 +36,7 @@ function Description(props) {
       {/*Not sure why the mobile divider doesn't show up on the page*/}
       <div className="description--divider"></div>
       <div className="description--divider--mobile"></div>
-      <div className="description__content">{mainVideoData.description}</div>
+      <p className="description__content">{mainVideoData.description}</p>
     </div>
   );
 }

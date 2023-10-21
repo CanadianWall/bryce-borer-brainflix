@@ -1,6 +1,12 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
+textarea, textarea::placeholder{
+
+        line-height: 35px;
+        padding-left:15px;
+      
+}
 
 .comment--wrapper {
     display: flex;
@@ -9,13 +15,16 @@
 
 .comment-total{
     margin-left: $mobile-margin;
+    @include tablet{
+        margin-left: $tablet-margin;
+    }
 }
 
 .comment {
     width: 100%;
 
     &--avatar {
-        margin: $tablet-gutter $mobile-margin;
+        margin: 19px $mobile-margin;
 
         @include desktop{
             margin: $tablet-gutter calc($tablet-gutter*2) $tablet-gutter $tablet-gutter;
@@ -26,18 +35,47 @@
     }
 
     &__form {
+        display:flex;
+        flex-direction:column;
+        @include tablet{
+            flex-direction: row;
+        }
+
+        &__content--wrapper{
+
+        }
 
         &__content {
+            width: 205px;
             font-weight: 600;
             color: $primary-silver;
+
         }
 
         &__input {
             resize: none;
-            height: 200px;
-            width: 90%;
+            height: 100px;
+            width: calc(100% - 43px);
+
             border: 1.5px solid $secondary-silver;
             border-radius: 5px;
+            padding:12px;
+            // margin-right:$mobile-margin;
+            line-height: 35px;
+
+            &::placeholder{
+                line-height: 35px;
+        padding-left:15px;
+            }
+          
+            
+
+            @include tablet{
+                height: 35px;
+                width: 300px;
+                padding:0;
+                vertical-align: middle;
+            }
         }
     }
 
@@ -49,13 +87,13 @@
         display: flex;
         align-items: center;
         height: 40px;
-        width: 91%;
+        width: calc(100% - 17px);
         margin: $mobile-margin 0;
         justify-content: center;
 
 
         @include tablet {
-            margin: $mobile-margin;
+            margin: 19px;
             width: 200px;
         }
 
