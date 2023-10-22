@@ -1,7 +1,7 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-.mainVideo{
+.main-video{
     background-color: $secondary-dark;
     &__video{
         width:100%;
@@ -9,6 +9,9 @@
         
         // background-color: teal;
         margin: 0 0 $tablet-gutter 0;
+        @include desktop{
+            margin:0;
+        }
     }
 }
 

@@ -90,6 +90,9 @@
         width: 100%;
         background-color: $secondary-silver;
         margin: 0 auto;
+        @include desktop{
+            width: 103%;
+        }
 
         &--mobile-only {
 

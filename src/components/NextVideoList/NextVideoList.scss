@@ -14,5 +14,9 @@
         width: 95%;
         background-color: $secondary-silver;
         margin: 8px auto $tablet-gutter;
+
+        @include desktop{
+            background-color: $primary-light;
+        }
     }
 }

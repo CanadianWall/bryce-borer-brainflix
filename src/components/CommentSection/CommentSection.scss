@@ -48,7 +48,8 @@ textarea::placeholder {
         &__content--wrapper {
             
             @include tablet{
-                width:calc(100vw - 297px);
+                // width:calc(100vw - 297px);
+                width:100%;
             }
         }
 
