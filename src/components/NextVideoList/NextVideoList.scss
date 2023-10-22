@@ -4,9 +4,10 @@
 .video-list {
     margin: 0 $mobile-margin;
 
-    @include tablet{
+    @include tablet {
         margin: 0 $tablet-margin;
-        @include desktop{
+
+        @include desktop {
             margin: 0 $desktop-margin 0 $tablet-gutter;
         }
     }
@@ -15,23 +16,21 @@
         font-weight: 600;
         color: $primary-silver;
 
-        @include tablet{
+        @include tablet {
             margin: $tablet-gutter 0;
         }
     }
 
     &--divider {
         height: 1.5px;
-        // width: calc(100% - ($mobile-margin*2));
         width: 100%;
         background-color: $secondary-silver;
-        // margin: 8px auto $tablet-gutter;
 
-        @include tablet{
+        @include tablet {
             width: 100%;
         }
 
-        @include desktop{
+        @include desktop {
             background-color: $primary-light;
         }
     }

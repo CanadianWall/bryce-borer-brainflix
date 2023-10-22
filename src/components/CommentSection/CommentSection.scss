@@ -20,8 +20,6 @@
             margin: $tablet-gutter calc($desktop-column/2) $tablet-gutter calc($tablet-gutter/2);
 
         }
-
-
     }
 
     &__form {
@@ -34,7 +32,6 @@
         }
 
         &__content--wrapper {
-
             @include tablet {
                 width: 100%;
             }
@@ -44,7 +41,6 @@
             width: 205px;
             font-weight: 600;
             color: $primary-silver;
-
         }
 
         &__input {
@@ -72,17 +68,16 @@
 
     &__button {
         background-color: $primary-blue;
-        color: white;
+        color: $primary-light;
         border: none;
         border-radius: 5px;
         display: flex;
         align-items: center;
+        justify-content: center;
         height: 40px;
         width: 100%;
         margin: $mobile-margin 0;
-        justify-content: center;
-
-
+        
         @include tablet {
             margin: 22px 0 0 0;
             width: 170px;

@@ -14,7 +14,6 @@ function App() {
     const newVideo = mainVideoDataList.find((video) => video.id === id)
     setMainVideo(newVideo)
   }
-  // console.log(mainVideoData.comments[0])
 
   return (
     <div className="App">

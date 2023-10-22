@@ -1,7 +1,6 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-
 .video-card {
     height: 60px;
     display: flex;
@@ -11,7 +10,6 @@
     @include tablet{
         height: 65px;
         margin: $tablet-gutter 0;
-
     }
 
     &__image {
@@ -22,7 +20,6 @@
         border-radius: 5px;
         object-fit: cover;
         margin-right: $mobile-margin;
-
     }
 
     &__title-and-channel {
@@ -30,7 +27,6 @@
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
-
         width: 190px;
 
         @include tablet {

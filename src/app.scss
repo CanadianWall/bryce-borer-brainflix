@@ -1,7 +1,6 @@
 @use './styles/partials/variables' as *;
 @use './styles/partials/mixins' as *;
 
-
 .video-content {
     display: flex;
     flex-direction: column;
@@ -17,21 +16,10 @@
             margin:0 $tablet-margin;
         }
 
-
         @include desktop {
             width:60%;
             margin: 0 0 0 $desktop-margin;
             border-right: 1.5px solid $secondary-silver;
         }
-
     }
-
-    &__next{
-
-    }
-
-}
-
-.next-videos {
-    // display:flex;
 }

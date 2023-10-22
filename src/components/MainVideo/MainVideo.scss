@@ -18,7 +18,6 @@
 }
 
 .description {
-
     &--wrapper {
         margin: 0 $mobile-margin;
     }
@@ -42,32 +41,6 @@
 
         @include tablet {
             flex-direction: row;
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    &--divider {
-        height: 1.5px;
-        width: calc(100vw - 32px);
-        background-color: $secondary-silver;
-        margin: 0 auto;
-
-        &--mobile {
-            // display:flex;
-            background-color: red;
-            // @include tablet {
-            //     display: none;
-            // }
         }
     }
 }
