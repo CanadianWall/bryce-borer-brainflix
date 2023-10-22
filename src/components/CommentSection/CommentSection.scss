@@ -1,11 +1,12 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-textarea, textarea::placeholder{
+textarea,
+textarea::placeholder {
 
-        line-height: 35px;
-        padding-left:15px;
-      
+    line-height: 35px;
+    padding-left: 15px;
+
 }
 
 .comment--wrapper {
@@ -13,9 +14,10 @@ textarea, textarea::placeholder{
     flex-direction: row;
 }
 
-.comment-total{
+.comment-total {
     margin-left: $mobile-margin;
-    @include tablet{
+
+    @include tablet {
         margin-left: $tablet-margin;
     }
 }
@@ -26,7 +28,7 @@ textarea, textarea::placeholder{
     &--avatar {
         margin: 19px $mobile-margin;
 
-        @include desktop{
+        @include desktop {
             margin: $tablet-gutter calc($tablet-gutter*2) $tablet-gutter $tablet-gutter;
 
         }
@@ -35,14 +37,19 @@ textarea, textarea::placeholder{
     }
 
     &__form {
-        display:flex;
-        flex-direction:column;
-        @include tablet{
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
             flex-direction: row;
+            justify-content: space-between;
         }
 
-        &__content--wrapper{
-
+        &__content--wrapper {
+            
+            @include tablet{
+                width:calc(100vw - 297px);
+            }
         }
 
         &__content {
@@ -55,25 +62,21 @@ textarea, textarea::placeholder{
         &__input {
             resize: none;
             height: 100px;
-            width: calc(100% - 43px);
-
+            width: calc(100% - 37px);
             border: 1.5px solid $secondary-silver;
             border-radius: 5px;
-            padding:12px;
-            // margin-right:$mobile-margin;
+            // padding: 12px;
             line-height: 35px;
 
-            &::placeholder{
+            &::placeholder {
                 line-height: 35px;
-        padding-left:15px;
+                padding-left: 15px;
             }
-          
-            
 
-            @include tablet{
-                height: 35px;
-                width: 300px;
-                padding:0;
+            @include tablet {
+                height: 37px;
+                width: calc(100% - 10px);
+                padding: 0;
                 vertical-align: middle;
             }
         }
@@ -93,12 +96,27 @@ textarea, textarea::placeholder{
 
 
         @include tablet {
-            margin: 19px;
-            width: 200px;
+            margin: 22px $tablet-margin 0px $mobile-margin;
+            width: 170px;
+        }
+
+        &--icon--wrapper {
+            position: relative;
+            left: 5px;
+            top: 1px;
         }
 
         &--icon {
-            display: flex;
+            width: 20px;
+        }
+
+        &--text {
+            width: 100%;
+            margin: 0 22px 0 0;
+            @include tablet{
+                width: 70px;
+            margin: 0 auto;
+            }
         }
     }
 }

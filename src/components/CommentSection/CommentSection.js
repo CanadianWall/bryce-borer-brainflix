@@ -39,10 +39,18 @@ function CommentSection(props) {
                         id="content" />
                     </div>
                     <button className="comment__button">
+                        
+                        <div className="comment__button--icon--wrapper">
                         <img className="comment__button--icon"
                             src={commentIcon}
                             alt="comment button" />
-                        COMMENT</button>
+                        </div>
+                        
+                        <div className="comment__button--text">
+                        COMMENT
+                        </div>
+                        
+                        </button>
                 </form>
                 </div>
             </div>
