@@ -1,0 +1,122 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+textarea,
+textarea::placeholder {
+
+    line-height: 35px;
+    padding-left: 15px;
+
+}
+
+.comment--wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-total {
+    margin-left: $mobile-margin;
+
+    @include tablet {
+        margin-left: $tablet-margin;
+    }
+}
+
+.comment {
+    width: 100%;
+
+    &--avatar {
+        margin: 19px $mobile-margin;
+
+        @include desktop {
+            margin: $tablet-gutter calc($tablet-gutter*2) $tablet-gutter $tablet-gutter;
+
+        }
+
+
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &__content--wrapper {
+            
+            @include tablet{
+                width:calc(100vw - 297px);
+            }
+        }
+
+        &__content {
+            width: 205px;
+            font-weight: 600;
+            color: $primary-silver;
+
+        }
+
+        &__input {
+            resize: none;
+            height: 100px;
+            width: calc(100% - 37px);
+            border: 1.5px solid $secondary-silver;
+            border-radius: 5px;
+            // padding: 12px;
+            line-height: 35px;
+
+            &::placeholder {
+                line-height: 35px;
+                padding-left: 15px;
+            }
+
+            @include tablet {
+                height: 37px;
+                width: calc(100% - 10px);
+                padding: 0;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &__button {
+        background-color: $primary-blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        width: calc(100% - 17px);
+        margin: $mobile-margin 0;
+        justify-content: center;
+
+
+        @include tablet {
+            margin: 22px $tablet-margin 0px $mobile-margin;
+            width: 170px;
+        }
+
+        &--icon--wrapper {
+            position: relative;
+            left: 5px;
+            top: 1px;
+        }
+
+        &--icon {
+            width: 20px;
+        }
+
+        &--text {
+            width: 100%;
+            margin: 0 22px 0 0;
+            @include tablet{
+                width: 70px;
+            margin: 0 auto;
+            }
+        }
+    }
+}

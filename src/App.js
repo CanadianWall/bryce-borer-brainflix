@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Header from './components/Header/Header';
+import MainVideo from './components/MainVideo/MainVideo';
+import Description from './components/Description/Description';
+import NextVideoList from './components/NextVideoList/NextVideoList';
+import CommentSection from './components/CommentSection/CommentSection';
+import mainVideoDataList from './data/video-details.json';
+import { useState } from 'react';
+
 
 function App() {
+  const [mainVideoData, setMainVideo] = useState(mainVideoDataList[0])
+  const changeMainVideoData = (id) => {
+    const newVideo = mainVideoDataList.find((video) => video.id === id)
+    setMainVideo(newVideo)
+  }
+  // console.log(mainVideoData.comments[0])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <MainVideo mainVideoData={mainVideoData} />
+      <div className="video-content">
+        <div className="video-content__main">
+          <Description mainVideoData={mainVideoData} />
+          <CommentSection mainVideoData={mainVideoData.comments} />
+        </div>
+        <div className="video-content__next">
+          <NextVideoList changeMainVideoData={changeMainVideoData} mainVideoId={mainVideoData.id} />
+        </div>
+      </div>
     </div>
   );
+
 }
 
 export default App;

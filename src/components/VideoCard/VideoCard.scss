@@ -1,0 +1,36 @@
+@use '../../styles/partials/variables' as *;
+
+
+.video-card {
+    height: 60px;
+    display: flex;
+    margin: $mobile-margin 0;
+    align-items: center;
+
+    &__image {
+        background-color: $secondary-silver;
+        width: 100px;
+        min-width: 100px;
+        height: 100%;
+        border-radius: 5px;
+        object-fit: cover;
+        margin: $mobile-margin;
+    }
+
+    &__title-and-channel {
+        display: flex;
+        flex-direction: column;    
+        justify-content: space-around;
+        height: 100%;
+
+        &__title {
+            font-weight: 600;
+            width: 100%;
+            margin: 0;
+        }
+
+        &__channel {
+            margin: 0;
+        }
+    }
+}

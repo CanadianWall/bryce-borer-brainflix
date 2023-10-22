@@ -1,0 +1,59 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+
+.comment-card {
+    display:flex;
+        flex-direction: row;
+        margin: $mobile-margin;
+        margin-bottom: $mobile-margin;
+    
+        @include desktop{
+            margin-left:0;
+        }
+        
+    &__avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $secondary-silver;
+        margin-right: $mobile-margin;
+        
+        flex-shrink: 0;
+
+        @include desktop{
+            margin: $tablet-gutter calc($tablet-gutter*2) $tablet-gutter $tablet-gutter;
+
+        }
+        
+        
+    }
+
+    &__top {
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        margin-bottom: 8px;
+
+        &__name {
+            font-weight: 600;
+        }
+
+        &__date {
+            color:$primary-silver;
+        }
+    }
+
+    &__content {
+        width: 90%;
+
+    }
+
+    &--divider{
+        height: 1.5px;
+        width: 95%;
+        background-color: $secondary-silver;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,29 @@
+@use './styles/partials/variables' as *;
+@use './styles/partials/mixins' as *;
+
+
+.video-content {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+        flex-direction: row;
+    }
+
+    &__main{
+        @include desktop {
+            width:60%;
+            margin-left:$desktop-margin;
+        }
+
+    }
+
+    &__next{
+
+    }
+
+}
+
+.next-videos {
+    // display:flex;
+}
