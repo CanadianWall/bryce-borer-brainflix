@@ -1,3 +1,4 @@
+import { timeSince } from '../Description/Description';
 import './Comment.scss'
 
 function Comment(props) {
@@ -13,7 +14,7 @@ function Comment(props) {
                 </h3>
 
                 <h5 className="comment-card__top__date">
-                    {formatDate(props.commentDate)}
+                    {timeSince(props.commentDate)}
                 </h5>
             </div>
             <p className="comment-card__content">
@@ -27,17 +28,4 @@ function Comment(props) {
         </>
     );
 }
-
-function formatDate(oldDate) {
-    const newDate = new Date(oldDate);
-    const day = pad(newDate.getDate());
-    const month = pad(newDate.getMonth() + 1);
-    const year = newDate.getFullYear();
-    return `${month}/${day}/${year}`;
-}
-
-function pad(n) {
-    return (n < 10) ? ("0" + n) : n;
-}
-
 export default Comment

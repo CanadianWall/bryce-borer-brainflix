@@ -7,9 +7,8 @@ function MainVideo(props) {
     <section className="main-video">
       <div className="main-video__video">
         <video className="main-video__video"
-        controls
-        poster ={mainVideoData.image}
-        // src={mainVideoData.video}
+          controls
+          poster={mainVideoData.image}
         >
         </video>
       </div>
