@@ -84,7 +84,6 @@
                 background-color: $secondary-light;
                 color: $secondary-dark;
                 height: 35px;
-                
                 width: 90%;
 
                 @include tablet {
@@ -96,6 +95,7 @@
                 position: absolute;
                 left: 11px;
                 top: 14px;
+
                 @include tablet {
                     top: 12px;
                 }
@@ -121,7 +121,7 @@
                 width: 100%;
                 
                 background-color: $primary-blue;
-                color: white;
+                color: $primary-light;
                 border: none;
                 border-radius: 6px;
                 
@@ -137,8 +137,6 @@
                 &--icon-wrapper{
                     position: relative;
                     left:3px;
-                }
-                &--icon {
                 }
             }
         }

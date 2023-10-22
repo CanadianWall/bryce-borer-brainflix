@@ -1,11 +1,7 @@
 import './VideoCard.scss'
 
 function VideoCard(props) {
-  // console.log(props.videoTitle)
   return (
-
-    <>
-
       <div className="video-card"
         onClick={() => props.changeMainVideoData(props.videoCardId)}
       >
@@ -21,7 +17,6 @@ function VideoCard(props) {
           </p>
         </div>
       </div>
-    </>
   );
 }
 

@@ -1,39 +1,25 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-textarea,
-textarea::placeholder {
-
-    line-height: 35px;
-    padding-left: 15px;
-
-}
-
 .comment--wrapper {
     display: flex;
     flex-direction: row;
 }
 
-.comment-total {
-    margin-left: $mobile-margin;
-
-    @include tablet {
-        margin-left: $tablet-margin;
-    }
-}
-
 .comment {
     width: 100%;
 
+    @include desktop{
+        padding-right: $tablet-gutter;
+    }
+
     &--avatar {
-        margin: 19px $mobile-margin;
+        margin: 19px $mobile-margin 0 1px;
 
         @include desktop {
-            margin: $tablet-gutter calc($tablet-gutter*2) $tablet-gutter $tablet-gutter;
+            margin: $tablet-gutter calc($desktop-column/2) $tablet-gutter calc($tablet-gutter/2);
 
         }
-
-
     }
 
     &__form {
@@ -46,9 +32,8 @@ textarea::placeholder {
         }
 
         &__content--wrapper {
-            
-            @include tablet{
-                width:calc(100vw - 297px);
+            @include tablet {
+                width: 100%;
             }
         }
 
@@ -56,27 +41,26 @@ textarea::placeholder {
             width: 205px;
             font-weight: 600;
             color: $primary-silver;
-
         }
 
         &__input {
             resize: none;
             height: 100px;
-            width: calc(100% - 37px);
+            width: calc(100% - 24px);
             border: 1.5px solid $secondary-silver;
             border-radius: 5px;
-            // padding: 12px;
             line-height: 35px;
+            padding-left: 15px;
 
             &::placeholder {
                 line-height: 35px;
-                padding-left: 15px;
             }
 
             @include tablet {
                 height: 37px;
-                width: calc(100% - 10px);
+                width: calc(100% - $tablet-margin);
                 padding: 0;
+                padding-left: 15px;
                 vertical-align: middle;
             }
         }
@@ -84,19 +68,18 @@ textarea::placeholder {
 
     &__button {
         background-color: $primary-blue;
-        color: white;
+        color: $primary-light;
         border: none;
         border-radius: 5px;
         display: flex;
         align-items: center;
-        height: 40px;
-        width: calc(100% - 17px);
-        margin: $mobile-margin 0;
         justify-content: center;
-
-
+        height: 40px;
+        width: 100%;
+        margin: $mobile-margin 0;
+        
         @include tablet {
-            margin: 22px $tablet-margin 0px $mobile-margin;
+            margin: 22px 0 0 0;
             width: 170px;
         }
 
@@ -113,9 +96,10 @@ textarea::placeholder {
         &--text {
             width: 100%;
             margin: 0 22px 0 0;
-            @include tablet{
+
+            @include tablet {
                 width: 70px;
-            margin: 0 auto;
+                margin: 0 auto;
             }
         }
     }

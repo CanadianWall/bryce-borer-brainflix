@@ -1,8 +1,8 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-
 .description--wrapper {
+    margin: 0;
 
     @include desktop {
         width: 95%;
@@ -18,9 +18,9 @@
         justify-content: space-between;
     }
 
-    &--title{
-        @include tablet{
-            margin-bottom: 0;
+    &--title {
+        @include tablet {
+            margin: $tablet-margin 0 0 0;
         }
     }
 
@@ -33,17 +33,13 @@
             flex-direction: row;
             width: 40%;
             justify-content: flex-start;
-            margin:0;
+            margin: 0;
         }
 
         &--author {
-            @include tablet{
+            @include tablet {
                 margin-right: $tablet-margin;
             }
-        }
-
-        &--date {
-
         }
     }
 
@@ -69,7 +65,7 @@
             &--icon {
                 margin-right: $mobile-margin;
 
-                @include tablet{
+                @include tablet {
                     margin-left: $tablet-margin;
                 }
             }
@@ -81,8 +77,11 @@
 
         @include tablet {
             margin: $mobile-margin 0;
-        }
 
+            @include desktop {
+                margin: $desktop-gutter 0;
+            }
+        }
     }
 
     &--divider {
@@ -91,8 +90,11 @@
         background-color: $secondary-silver;
         margin: 0 auto;
 
-        &--mobile-only {
+        @include desktop {
+            width: 105.3%;
+        }
 
+        &--mobile-only {
             @extend .description--divider;
 
             @include tablet {

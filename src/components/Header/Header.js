@@ -6,7 +6,6 @@ import searchIcon from "../../assets/icons/search.svg"
 
 function Header() {
     return (
-        // JSX
         <header className="header">
             <div className="header__logo">
                 <div className="header__logo--wrapper">
@@ -15,8 +14,8 @@ function Header() {
                         alt="play icon" />
                 </div>
                 <h2 className="header__logo--title">BrainFlix</h2>
-
             </div>
+
             <div className="header__content">
                 <div className="header__content__search">
                     <input className="header__content__search--box"
@@ -29,6 +28,7 @@ function Header() {
                         src={murugeAvatar}
                         alt="mohan muruge" />
                 </div>
+
                 <div className="header__content__upload">
                     <button type="submit" className="header__content__upload__button">
                         <div className="header__content__upload__button--icon-wrapper">
@@ -40,8 +40,8 @@ function Header() {
                         <div className="header__content__upload__button--text">
                             UPLOAD
                             </div>
-                        
                         </button>
+                        
                     <img className="avatar avatar--tablet"
                         src={murugeAvatar}
                         alt="mohan muruge" />
