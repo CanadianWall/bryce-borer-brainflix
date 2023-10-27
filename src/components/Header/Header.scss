@@ -124,6 +124,10 @@
                 color: $primary-light;
                 border: none;
                 border-radius: 6px;
+
+                &:hover{
+                    background-color: $secondary-blue;
+                }
                 
                 @include tablet {
                     margin: 0 $mobile-margin;

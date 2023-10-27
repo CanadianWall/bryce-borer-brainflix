@@ -9,6 +9,7 @@ function MainVideo(props) {
         <video className="main-video__video"
           controls
           poster={mainVideoData.image}
+          alt={mainVideoData.title}
         >
         </video>
       </div>

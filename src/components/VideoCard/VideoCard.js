@@ -5,7 +5,7 @@ function VideoCard(props) {
       <div className="video-card"
         onClick={() => props.changeMainVideoData(props.videoCardId)}
       >
-        <img className="video-card__image" src={props.videoImage} />
+        <img className="video-card__image" src={props.videoImage} alt={props.videoTitle} />
 
         <div className="video-card__title-and-channel">
           <h3 className="video-card__title-and-channel__title">
