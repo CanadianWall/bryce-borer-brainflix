@@ -1,11 +1,16 @@
 import './App.scss';
-import Header from './components/Header/Header';
-import MainVideo from './components/MainVideo/MainVideo';
-import Description from './components/Description/Description';
-import NextVideoList from './components/NextVideoList/NextVideoList';
-import CommentSection from './components/CommentSection/CommentSection';
-import mainVideoDataList from './data/video-details.json';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState } from 'react';
+import Header from './components/Header/Header';
+// import MainVideo from './components/MainVideo/MainVideo';
+// import Description from './components/Description/Description';
+// import NextVideoList from './components/NextVideoList/NextVideoList';
+// import CommentSection from './components/CommentSection/CommentSection';
+import mainVideoDataList from './data/video-details.json';
+import HomePage from './pages/HomePage/HomePage';
+import UploadPage from './pages/UploadPage/UploadPage';
+import VideoDetailsPage from './pages/VideoDetailsPage/VideoDetailsPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 
 function App() {
@@ -16,7 +21,28 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="upload" element={<UploadPage />} />
+        <Route
+          path=":videoId"
+          element={<VideoDetailsPage />}
+        />
+        <Route path="*" element={<NotFoundPage />} ></Route>
+      </Routes>
+
+
+    </BrowserRouter>
+  );
+
+}
+
+export default App;
+
+
+{/* <div className="App">
       <Header />
       <MainVideo mainVideoData={mainVideoData} />
       <div className="video-content">
@@ -28,9 +54,4 @@ function App() {
           <NextVideoList changeMainVideoData={changeMainVideoData} mainVideoId={mainVideoData.id} />
         </div>
       </div>
-    </div>
-  );
-
-}
-
-export default App;
+    </div> */}

@@ -30,7 +30,13 @@
         
         align-items: center;
         margin: $mobile-margin;
-
+        &:hover{
+            color:$secondary-dark;
+            .header__logo--wrapper{
+                background-color: $secondary-blue;
+            }
+        }
+        
         &--wrapper {
             display: flex;
             background-color: $primary-blue;
@@ -41,6 +47,7 @@
             width: 38px;
             margin: $mobile-margin;
             margin-right:6px;
+            
         }
 
         &--play {
@@ -127,6 +134,7 @@
 
                 &:hover{
                     background-color: $secondary-blue;
+                    cursor: pointer;
                 }
                 
                 @include tablet {
@@ -170,4 +178,9 @@
             margin:0;
         }
     }
+}
+
+.nav-link{
+    text-decoration: none;
+    color: $primary-dark;
 }

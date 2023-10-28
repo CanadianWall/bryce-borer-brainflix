@@ -80,6 +80,7 @@
 
         &:hover{
             background-color: $secondary-blue;
+            cursor: pointer;
         }
         
         @include tablet {
