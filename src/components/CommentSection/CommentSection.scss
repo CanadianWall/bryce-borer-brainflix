@@ -44,25 +44,9 @@
         }
 
         &__input {
-            resize: none;
+            @include textbox;
             height: 100px;
             width: calc(100% - 24px);
-            border: 1.5px solid $secondary-silver;
-            border-radius: 5px;
-            line-height: 35px;
-            padding-left: 15px;
-
-            &::placeholder {
-                line-height: 35px;
-            }
-
-            @include tablet {
-                height: 37px;
-                width: calc(100% - $tablet-margin);
-                padding: 0;
-                padding-left: 15px;
-                vertical-align: middle;
-            }
         }
     }
 

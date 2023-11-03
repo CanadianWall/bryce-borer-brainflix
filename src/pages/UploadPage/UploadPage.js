@@ -7,33 +7,33 @@ function UploadPage({ username }) {
         <section className="upload">
             <div className="upload--divider"></div>
             <h1>Upload Video</h1>
-            <h3>VIDEO THUMBNAIL</h3>
+            <h3 className="upload__subtitle">VIDEO THUMBNAIL</h3>
             <img className="upload__preview-img"
                 src={uploadPreview}
                 alt="upload preview" />
-            <p>Upload time, {username}</p>
             <div className="upload__form--wrapper">
                 <label
                     className="upload__form__title"
                     htmlFor="content">
-                    JOIN THE CONVERSATION<br />
+                    TITLE YOUR VIDEO<br />
                 </label>
                 <textarea className="upload__form__title--input"
                     name="content"
-                    placeholder="Add a new comment"
+                    placeholder="Add a title to your video"
                     id="content" />
-
+                <br />
                 <label
                     className="upload__form__description"
                     htmlFor="content">
-                    JOIN THE CONVERSATION<br />
+                    ADD A VIDEO DESCRIPTION<br />
                 </label>
                 <textarea className="upload__form__description--input"
                     name="content"
-                    placeholder="Add a new comment"
+                    placeholder="Add a description to your video"
                     id="content" />
             </div>
-            <div className="upload--divider"></div>
+            <div className="upload--divider--tablet"></div>
+            <div className="upload__button">
             <button type="submit" className="upload__button__publish">
                 <div className="upload__button__publish--icon-wrapper">
                     <img className="upload__button__publish--icon"
@@ -51,6 +51,7 @@ function UploadPage({ username }) {
                     CANCEL
                 </div>
             </button>
+            </div>
 
         </section>
     )

@@ -34,7 +34,7 @@ function Header() {
                 </div>
 
                 <div className="header__content__upload">
-                    <Link to="/" className="header__content__upload--link">
+                    <Link to="/upload" className="header__content__upload--link">
                     <button type="submit" className="header__content__upload__button">
                         <div className="header__content__upload__button--icon-wrapper">
                             <img className="header__content__upload__button--icon"
