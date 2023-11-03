@@ -14,7 +14,7 @@ function CommentSection(props) {
         }
         props.addComment(newComment);
     }
-    console.log(props.mainVideoData.length)
+
     return (
         <>
             <h3 className="comment-total">{props.mainVideoData.length} Comments</h3>

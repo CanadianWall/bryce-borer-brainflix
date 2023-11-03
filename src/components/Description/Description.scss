@@ -85,17 +85,14 @@
     }
 
     &--divider {
-        height: 1.5px;
-        width: 100%;
-        background-color: $secondary-silver;
-        margin: 0 auto;
+        @include divider;
 
         @include desktop {
             width: 105.3%;
         }
 
         &--mobile-only {
-            @extend .description--divider;
+            @include divider;
 
             @include tablet {
                 display: none;

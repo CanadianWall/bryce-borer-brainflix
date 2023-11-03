@@ -1,11 +1,58 @@
 import './UploadPage.scss';
+import uploadPreview from "../../assets/images/Upload-video-preview.jpg"
+import publishIcon from "../../assets/icons/publish.svg"
 
-function UploadPage({username}) {
-    return(
-        <>
-        <h1>Upload Page</h1>
-        <p>Upload time, {username}</p>
-    </>
+function UploadPage({ username }) {
+    return (
+        <section className="upload">
+            <div className="upload--divider"></div>
+            <h1>Upload Video</h1>
+            <h3>VIDEO THUMBNAIL</h3>
+            <img className="upload__preview-img"
+                src={uploadPreview}
+                alt="upload preview" />
+            <p>Upload time, {username}</p>
+            <div className="upload__form--wrapper">
+                <label
+                    className="upload__form__title"
+                    htmlFor="content">
+                    JOIN THE CONVERSATION<br />
+                </label>
+                <textarea className="upload__form__title--input"
+                    name="content"
+                    placeholder="Add a new comment"
+                    id="content" />
+
+                <label
+                    className="upload__form__description"
+                    htmlFor="content">
+                    JOIN THE CONVERSATION<br />
+                </label>
+                <textarea className="upload__form__description--input"
+                    name="content"
+                    placeholder="Add a new comment"
+                    id="content" />
+            </div>
+            <div className="upload--divider"></div>
+            <button type="submit" className="upload__button__publish">
+                <div className="upload__button__publish--icon-wrapper">
+                    <img className="upload__button__publish--icon"
+                        src={publishIcon}
+                        alt="upload button" />
+                </div>
+
+                <div className="upload__button__publish--text">
+                    PUBLISH
+                </div>
+            </button>
+            <button type="submit" className="upload__button__cancel">
+
+                <div className="upload__button__cancel--text">
+                    CANCEL
+                </div>
+            </button>
+
+        </section>
     )
 }
 

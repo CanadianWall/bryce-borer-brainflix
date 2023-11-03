@@ -52,10 +52,7 @@
     }
 
     &--divider{
-        height: 1.5px;
-        width: 100%;
-        background-color: $secondary-silver;
-        margin: 0 auto;
+        @include divider;
 
         @include tablet{
             margin: $tablet-gutter auto $mobile-margin auto;
