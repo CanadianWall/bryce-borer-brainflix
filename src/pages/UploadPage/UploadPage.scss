@@ -2,18 +2,29 @@
 @use '../../styles/partials/mixins' as *;
 
 .upload {
-
+    &--main-wrapper{
+        display:flex;
+        flex-direction: column;
+        @include desktop{
+            flex-direction: row;
+        }
+    }
     margin: $mobile-margin;
     margin-top: 0;
 
     @include tablet {
         margin: $tablet-margin;
         margin-top: 0;
+        @include desktop{
+            margin: $desktop-margin;
+            margin-top: 0;
+        }
     }
+
 
     &--divider {
         @include divider;
-
+        
         &--tablet {
             @include tablet {
                 @include divider;
@@ -25,6 +36,15 @@
         margin-bottom: $tablet-gutter;
     }
 
+    &--img-wrapper{
+        @include tablet{
+            width:50%;
+            @include desktop{
+                width: 35%;
+            }
+        }
+    }
+
     &__subtitle {
         color: $primary-silver;
         @include tablet{
@@ -33,23 +53,38 @@
     }
 
     &__preview-img {
-
         width: 100%;
         border-radius: 5px;
+        object-fit: cover;
+        
         @include tablet{
-            width: 50%;
+            
+            @include desktop{
+                height: 193px;
+            }
         }
     }
 
     &__form {
-        &--wrapper {}
+        
+        &--wrapper {
+            @include desktop{
+                margin: $tablet-gutter 0 0 $tablet-gutter;
+                width:63%;
+            }
+        }
 
         &__title {
+            
             &--wrapper {
                 margin: $mobile-margin 0;
+                @include desktop{
+                    margin-top: 0;
+                    width: 100%;
+                }
             }
             &--input {
-
+                margin: 8px 0;
                 @include textbox;
                 width: calc(100% - 20px);
 
