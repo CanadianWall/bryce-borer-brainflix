@@ -6,6 +6,11 @@
     margin: $mobile-margin;
     margin-top: 0;
 
+    @include tablet {
+        margin: $tablet-margin;
+        margin-top: 0;
+    }
+
     &--divider {
         @include divider;
 
@@ -16,35 +21,53 @@
         }
     }
 
-    &__subtitle{
-        color:$primary-silver;
-
+    &--title{
+        margin-bottom: $tablet-gutter;
     }
+
+    &__subtitle {
+        color: $primary-silver;
+        @include tablet{
+            margin-top: $tablet-gutter;
+        }
+    }
+
     &__preview-img {
 
         width: 100%;
         border-radius: 5px;
-
+        @include tablet{
+            width: 50%;
+        }
     }
 
     &__form {
         &--wrapper {}
 
         &__title {
-            
+            &--wrapper {
+                margin: $mobile-margin 0;
+            }
             &--input {
 
                 @include textbox;
+                width: calc(100% - 20px);
+
+                @include tablet {
+                    width: calc(100% - 20px);
+                }
 
             }
         }
 
         &__description {
-            
+            &--wrapper {
+                margin-bottom: $mobile-margin;
+            }
             &--input {
                 resize: none;
                 height: 100px;
-                width: calc(100% - 24px);
+                width: calc(100% - 20px);
                 border: 1.5px solid $secondary-silver;
                 border-radius: 5px;
                 background-color: $secondary-light;
@@ -60,73 +83,76 @@
     }
 
     &__button {
-        display:flex;
-        flex-direction:column;
+        display: flex;
+        flex-direction: column;
+        
 
-        @include tablet{
-            flex-direction:row-reverse;
+        @include tablet {
+            margin-top: $tablet-gutter;
+            flex-direction: row-reverse;
         }
+
         &__publish {
-            display:flex;
+            display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 0 auto;
+            margin:  $mobile-margin 0;
             height: 40px;
             width: 100%;
-            
+
             background-color: $primary-blue;
             color: $primary-light;
             border: none;
             border-radius: 6px;
-            
+
             @include tablet {
-                margin: 0 $mobile-margin;
-                width: 300px;
+                margin: 0 0 0 $mobile-margin;
+                width: 180px;
             }
 
-            &--text{
-            padding-right:calc(50% - 26px);
+            &--text {
+                padding-right: calc(50% - 27px);
             }
 
-            &--icon-wrapper{
+            &--icon-wrapper {
                 position: relative;
-                left:3px;
+                left: 3px;
             }
-            &:hover{
+
+            &:hover {
                 background-color: $secondary-blue;
                 cursor: pointer;
             }
+
             &--icon-wrapper {}
 
             &--icon {}
         }
 
         &__cancel {
-            display:flex;
-                justify-content: space-between;
-                align-items: center;
-                margin: 0 auto;
-                height: 40px;
-                width: 100%;
-                
-                background-color: $primary-blue;
-                color: $primary-light;
-                border: none;
-                border-radius: 6px;
-                
-                @include tablet {
-                    margin: 0 $mobile-margin;
-                    width: 300px;
-                }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            height: 40px;
+            width: 100%;
+            margin:  $mobile-margin 0;
 
-                &--text{
-                padding-right:calc(50% - 26px);
-                }
+            background-color: $primary-light;
+            color: $primary-blue;
+            border: none;
+            border-radius: 6px;
 
-                &:hover{
-                    background-color: $secondary-blue;
-                    cursor: pointer;
-                }
+            @include tablet {
+                margin: 0 $mobile-margin;
+                width: 180px;
+            }
+
+            &:hover {
+                background-color: $secondary-silver;
+                color: $secondary-blue;
+                cursor: pointer;
+            }
         }
     }
 }

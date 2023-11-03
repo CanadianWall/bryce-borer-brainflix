@@ -6,12 +6,14 @@ function UploadPage({ username }) {
     return (
         <section className="upload">
             <div className="upload--divider"></div>
-            <h1>Upload Video</h1>
+            <h1 className="upload--title">Upload Video</h1>
+            <div className="upload--divider--tablet"></div>
             <h3 className="upload__subtitle">VIDEO THUMBNAIL</h3>
             <img className="upload__preview-img"
                 src={uploadPreview}
                 alt="upload preview" />
             <div className="upload__form--wrapper">
+                <div className="upload__form__title--wrapper">
                 <label
                     className="upload__form__title"
                     htmlFor="content">
@@ -21,7 +23,9 @@ function UploadPage({ username }) {
                     name="content"
                     placeholder="Add a title to your video"
                     id="content" />
-                <br />
+                </div>
+                
+                <div className='upload__form__description--wrapper'>
                 <label
                     className="upload__form__description"
                     htmlFor="content">
@@ -31,6 +35,7 @@ function UploadPage({ username }) {
                     name="content"
                     placeholder="Add a description to your video"
                     id="content" />
+                </div>
             </div>
             <div className="upload--divider--tablet"></div>
             <div className="upload__button">
@@ -41,15 +46,15 @@ function UploadPage({ username }) {
                         alt="upload button" />
                 </div>
 
-                <div className="upload__button__publish--text">
+                <h3 className="upload__button__publish--text">
                     PUBLISH
-                </div>
+                </h3>
             </button>
             <button type="submit" className="upload__button__cancel">
 
-                <div className="upload__button__cancel--text">
+                <h3 className="upload__button__cancel--text">
                     CANCEL
-                </div>
+                </h3>
             </button>
             </div>
 
