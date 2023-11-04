@@ -1,4 +1,4 @@
-import { timeSince } from '../Description/Description';
+import { timeSince } from '../../data/utils';
 import './Comment.scss'
 
 function Comment(props) {

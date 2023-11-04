@@ -1,8 +1,8 @@
-// API Key: c4fa7b1e46177ee8d808663238de684ff9
+// API Key: cd31aaaa-5c5c-4640-b6a0-97d0bccb3015
 
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 // import MainVideo from './components/MainVideo/MainVideo';
 // import Description from './components/Description/Description';
@@ -22,6 +22,7 @@ function App() {
     setMainVideo(newVideo)
   }
 
+
   return (
     <BrowserRouter>
       <Header />
@@ -30,7 +31,7 @@ function App() {
         <Route path="upload" element={<UploadPage />} />
         <Route
           path=":videoId"
-          element={<VideoDetailsPage />}
+          element={<HomePage />}
         />
         <Route path="*" element={<NotFoundPage />} ></Route>
       </Routes>
