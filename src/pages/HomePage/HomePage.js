@@ -1,5 +1,5 @@
 import './HomePage.scss';
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { API_URL, API_KEY } from '../../data/utils';
@@ -13,13 +13,32 @@ import mainVideoDataList from '../../data/video-details.json';
 function HomePage({ username }) {
 
     const [videos, setVideos] = useState([]);
-    const [videoId, setVideoId] = useState(["84e96018-4022-434e-80bf-000ce4cd12b8"]);
+    const [mainVideoData, setMainVideo] = useState(mainVideoDataList[0])
+    // const [mainVideoData, setMainVideo] = useState()
+    // const [videoId, setVideoId] = useState(["84e96018-4022-434e-80bf-000ce4cd12b8"]);
+
+    const {videoId} = useParams();
+
+    const getVideoId = (id) => {
+        axios
+        .get(`${API_URL}videos/${id}${API_KEY}`)
+        .then((response) => {
+            console.log("getVideoId response: ", response)
+        })
+    }
+    useEffect(() => {
+        if(videoId){
+            getVideoId(videoId)
+        } else {
+            getVideoId("84e96018-4022-434e-80bf-000ce4cd12b8")
+        }
+    })
 
     const fetchAllVideos = () =>
         axios
             .get(`${API_URL}videos${API_KEY}`)
             .then((response) => {
-                console.log('response', response);
+                console.log('response', response.data);
                 setVideos(response);
             });
 
@@ -27,18 +46,10 @@ function HomePage({ username }) {
         fetchAllVideos();
     }, []);
 
-    const [mainVideoData, setMainVideo] = useState(mainVideoDataList[0])
-
     const changeMainVideoData = (id) => {
         const newVideo = mainVideoDataList.find((video) => video.id === id)
         setMainVideo(newVideo)
     }
-
-    // const changeMainVideoData = (id) => {
-    //     const newVideo = mainVideoDataList.find((video) => video.id === id)
-    //     setMainVideo(newVideo)
-    // }
-
 
 
     return (

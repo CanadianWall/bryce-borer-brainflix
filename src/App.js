@@ -1,7 +1,7 @@
 // API Key: cd31aaaa-5c5c-4640-b6a0-97d0bccb3015
 
 import './App.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 // import MainVideo from './components/MainVideo/MainVideo';
@@ -27,10 +27,11 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Navigate to ='/videos'  />} />
+        <Route path="videos" element={<HomePage />} />
         <Route path="upload" element={<UploadPage />} />
         <Route
-          path=":videoId"
+          path="videos/:videoId"
           element={<HomePage />}
         />
         <Route path="*" element={<NotFoundPage />} ></Route>

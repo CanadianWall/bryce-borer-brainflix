@@ -15,6 +15,10 @@
         height: 65px;
         margin: $tablet-gutter 0;
     }
+    &--link{
+        text-decoration: none;
+        color: $primary-dark;
+    }
 
     &__image {
         background-color: $secondary-silver;

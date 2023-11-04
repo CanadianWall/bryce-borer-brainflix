@@ -1,7 +1,7 @@
 import './MainVideo.scss'
 
-function MainVideo(props) {
-  const { mainVideoData } = props
+function MainVideo({mainVideoData}) {
+
   return (
 
     <section className="main-video">
