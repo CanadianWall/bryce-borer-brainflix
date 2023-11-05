@@ -1,7 +1,9 @@
 import { timeSince } from '../../data/utils';
 import './Comment.scss'
+import deleteIcon from "../../assets/icons/icon-delete.svg"
 
 function Comment(props) {
+
     return (
         <>
             <div className="comment-card--divider"></div>
@@ -20,7 +22,9 @@ function Comment(props) {
                     <p className="comment-card__content">
                         {props.commentContent}
                     </p>
-
+                    <img className="comment-card__delete-icon"
+                                    src={deleteIcon}
+                                    alt="delete button" />
                 </div>
 
             </section>

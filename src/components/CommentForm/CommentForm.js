@@ -1,18 +1,34 @@
-import commentIcon from "../../assets/icons/add_comment.svg"
 import './CommentForm.scss'
+import commentIcon from "../../assets/icons/add_comment.svg"
 import murugeAvatar from "../../assets/images/Mohan-muruge.jpg"
+import axios from 'axios';
+import { API_URL, API_KEY } from '../../data/utils';
+import { useEffect, useState } from 'react';
+import CommentList from '../CommentList/CommentList';
 
 function CommentForm(props) {
+    // const [comments, setComments] = useState(props.mainVideo);
 
-    const submitComment = (event) => {
+const submitComment = (event) => {
         event.preventDefault();
 
         const newComment = {
-            content: event.target.content.value,
-            title: event.target.title.value
+            name: "Bryce Borer",
+            comment: event.target.content.value
         }
-        props.addComment(newComment);
+
+        axios.post(`${API_URL}videos/${props.mainVideo.id}/comments${API_KEY}`, newComment)
+        .then((response) => {
+            const mainVideoTemp = [...props.mainVideo.comments, response.data]
+            const mainVideoTempObj = {
+                ...props.mainVideo
+            }
+            mainVideoTempObj.comments = mainVideoTemp
+            props.setMainVideo(mainVideoTempObj)           
+        })
+        .catch((error) => console.log(error))
     }
+  
 
     return (
         <>
@@ -37,7 +53,7 @@ function CommentForm(props) {
                                 placeholder="Add a new comment"
                                 id="content" />
                         </div>
-                        <button type="button" className="comment__button">
+                        <button type="submit" className="comment__button">
                             <div className="comment__button--icon--wrapper">
                                 <img className="comment__button--icon"
                                     src={commentIcon}

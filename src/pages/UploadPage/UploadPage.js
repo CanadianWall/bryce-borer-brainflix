@@ -1,8 +1,14 @@
 import './UploadPage.scss';
 import uploadPreview from "../../assets/images/Upload-video-preview.jpg"
 import publishIcon from "../../assets/icons/publish.svg"
+import { useNavigate } from "react-router-dom";
 
 function UploadPage() {
+    let navigateFunction = useNavigate();
+    const handleRedirect = () => {
+        alert("Video Uploaded!")
+        navigateFunction('/')
+    }
     return (
         <>
             <div className="upload--divider"></div>
@@ -45,7 +51,10 @@ function UploadPage() {
                 </div>
                 <div className="upload--divider--tablet"></div>
                 <div className="upload__button">
-                    <button type="submit" className="upload__button__publish">
+                    <button 
+                    type="submit" 
+                    className="upload__button__publish" 
+                    onClick={handleRedirect}>
                         <div className="upload__button__publish--icon-wrapper">
                             <img className="upload__button__publish--icon"
                                 src={publishIcon}
@@ -69,3 +78,4 @@ function UploadPage() {
 }
 
 export default UploadPage
+

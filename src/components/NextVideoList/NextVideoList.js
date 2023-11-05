@@ -5,7 +5,7 @@ import axios from 'axios';
 import { API_URL, API_KEY } from '../../data/utils';
 
 function NextVideoList(props) {
-  const [loading, setLoading] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
   const [videos, setVideos] = useState(props);
 
   const fetchAllVideos = () =>
@@ -13,14 +13,14 @@ function NextVideoList(props) {
       .get(`${API_URL}videos${API_KEY}`)
       .then((response) => {
         setVideos(response);
-        setLoading(true)
+        setHasLoaded(true)
       });
 
   useEffect(() => {
     fetchAllVideos();
   }, []);
 
-  if (loading) {
+  if (!hasLoaded) {return null}
     return (
       <section className="video-list">
         <div className="video-list--divider"></div>
@@ -39,7 +39,7 @@ function NextVideoList(props) {
         ))}
       </section>
     );
-  }
+  
 }
 
 export default NextVideoList;
