@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom'
 import './Header.scss'
 import murugeAvatar from "../../assets/images/Mohan-muruge.jpg"
 import playIcon from "../../assets/icons/play.svg"
@@ -35,17 +34,17 @@ function Header() {
 
                 <div className="header__content__upload">
                     <Link to="/upload" className="header__content__upload--link">
-                    <button type="submit" className="header__content__upload__button">
-                        <div className="header__content__upload__button--icon-wrapper">
-                            <img className="header__content__upload__button--icon"
-                                src={uploadIcon}
-                                alt="upload button" />
-                        </div>
+                        <button type="submit" className="header__content__upload__button">
+                            <div className="header__content__upload__button--icon-wrapper">
+                                <img className="header__content__upload__button--icon"
+                                    src={uploadIcon}
+                                    alt="upload button" />
+                            </div>
 
-                        <div className="header__content__upload__button--text">
-                            UPLOAD
-                        </div>
-                    </button>
+                            <div className="header__content__upload__button--text">
+                                UPLOAD
+                            </div>
+                        </button>
                     </Link>
 
                     <img className="avatar avatar--tablet"

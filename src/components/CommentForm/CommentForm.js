@@ -1,9 +1,8 @@
 import commentIcon from "../../assets/icons/add_comment.svg"
-import './CommentSection.scss'
-import Comment from '../Comment/Comment'
+import './CommentForm.scss'
 import murugeAvatar from "../../assets/images/Mohan-muruge.jpg"
 
-function CommentSection(props) {
+function CommentForm(props) {
 
     const submitComment = (event) => {
         event.preventDefault();
@@ -17,7 +16,7 @@ function CommentSection(props) {
 
     return (
         <>
-            <h3 className="comment-total">{props.mainVideoData.length} Comments</h3>
+            <h3 className="comment-total">{props.mainVideo.length} Comments</h3>
             <div className="comment--wrapper">
                 <div className="comment--avatar">
                     <img className="avatar" src={murugeAvatar} alt="mohan muruge" />
@@ -51,22 +50,8 @@ function CommentSection(props) {
                     </form>
                 </div>
             </div>
-
-            <section className="comment-list">
-
-                {props.mainVideoData.map((commentCard, index) => (
-                    <Comment
-                        key={index}
-                        commentId={commentCard.id}
-                        commentName={commentCard.name}
-                        commentContent={commentCard.comment}
-                        commentLikes={commentCard.likes}
-                        commentDate={commentCard.timestamp}
-                    />
-                ))}
-            </section>
         </>
     );
 }
 
-export default CommentSection
+export default CommentForm
