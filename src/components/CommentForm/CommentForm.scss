@@ -1,0 +1,95 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.comment--wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.comment {
+    width: 100%;
+
+    @include desktop{
+        padding-right: $tablet-gutter;
+    }
+
+    &--avatar {
+        margin: 19px $mobile-margin 0 1px;
+
+        @include desktop {
+            margin: $tablet-gutter calc($desktop-column/2) $tablet-gutter calc($tablet-gutter/2);
+
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &__content--wrapper {
+            @include tablet {
+                width: 100%;
+            }
+        }
+
+        &__content {
+            width: 205px;
+            font-weight: 600;
+            color: $primary-silver;
+        }
+
+        &__input {
+            @include textbox;
+            height: 100px;
+            width: calc(100% - 24px);
+        }
+    }
+
+    &__button {
+        background-color: $primary-blue;
+        color: $primary-light;
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 100%;
+        margin: $mobile-margin 0;
+
+        &:hover{
+            background-color: $secondary-blue;
+            cursor: pointer;
+        }
+        
+        @include tablet {
+            margin: 22px 0 0 0;
+            width: 200px;
+        }
+
+        &--icon--wrapper {
+            position: relative;
+            left: 5px;
+            top: 1px;
+        }
+
+        &--icon {
+            width: 20px;
+        }
+
+        &--text {
+            width: 100%;
+            margin: 0 22px 0 0;
+
+            @include tablet {
+                width: 70px;
+                margin: 0 auto;
+            }
+        }
+    }
+}

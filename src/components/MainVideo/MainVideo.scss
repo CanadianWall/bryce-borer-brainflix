@@ -1,0 +1,46 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.main-video {
+    background-color: $secondary-dark;
+
+    &__video {
+        width: 100%;
+
+        @include tablet {
+            height: 50vw;
+        }
+
+        @include desktop {
+            margin: 0;
+        }
+    }
+}
+
+.description {
+    &--wrapper {
+        margin: 0 $mobile-margin;
+    }
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__authorAndDate {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__viewsAndLikes {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+}

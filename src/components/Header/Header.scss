@@ -1,0 +1,192 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: $primary-light;
+
+    @include tablet {
+        justify-content: space-between;
+        flex-direction: row;
+        height: 64px;
+        margin: 4px 0 2px 0;
+
+        @include desktop{
+            margin: 4px 95px 2px 95px;
+        }
+    }
+
+    &--link{
+        text-decoration: none;
+        color: $primary-dark;
+        display:inline-flex;
+    }
+
+    &__content {
+        margin-bottom: 80px;
+
+        @include tablet {
+            justify-content: space-evenly;
+            flex-direction: row;
+            margin-bottom:0;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        height: 40px;
+        
+        align-items: center;
+        margin: $mobile-margin;
+
+        &--wrapper {
+            display: flex;
+            background-color: $primary-blue;
+            border-radius: 15% / 50%;
+            height: 25px;
+            justify-content: center;
+            align-items: center;
+            width: 38px;
+            margin: $mobile-margin;
+            margin-right:6px;
+        }
+
+        &--play {
+            height: 16px;
+        }
+
+        &--title {
+            display:flex;
+            text-decoration: none;
+            font-family: $font-demi;
+            font-size: 18px;
+            padding-top:5px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        height: 40px;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+
+        &__search {
+            display: flex;
+            position: relative;
+            width:100%;
+            justify-content: center;
+            align-items:center;
+            margin: 0 auto;
+
+            @include tablet {
+                width: 300px;
+            }
+
+            &--box {
+                border-radius: 5px;
+                border: 1.5px solid $secondary-silver;
+                background-color: $secondary-light;
+                color: $secondary-dark;
+                height: 35px;
+                width: 90%;
+
+                @include tablet {
+                    width: 300px;
+                }
+            }
+
+            &--icon {
+                position: absolute;
+                left: 11px;
+                top: 14px;
+
+                @include tablet {
+                    top: 12px;
+                }
+            }
+        }
+
+        &__upload {
+            display: flex;
+            margin: $mobile-margin auto;
+            width: calc(100vw - 32px);
+
+            @include tablet {
+                margin: 0 $mobile-margin;
+                width: 230px;
+            }
+            &--link{
+                text-decoration: none;
+                color: $primary-dark;
+                display:inline-flex;
+                width:100%;
+
+                @include tablet{
+                    width: 75%;
+                }
+            }
+            &__button {
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0 auto;
+                height: 40px;
+                width: 100%;
+                
+                background-color: $primary-blue;
+                color: $primary-light;
+                border: none;
+                border-radius: 6px;
+                
+                @include tablet {
+                    margin: 0 $mobile-margin;
+                    width: 300px;
+                }
+
+                &--text{
+                padding-right:calc(50% - 26px);
+                }
+
+                &--icon-wrapper{
+                    position: relative;
+                    left:3px;
+                }
+                &:hover{
+                    background-color: $secondary-blue;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    &--mobile {
+        display: flex;
+        margin-left: $mobile-margin;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &--tablet {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            margin:0;
+        }
+    }
+}
+

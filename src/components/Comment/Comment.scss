@@ -1,0 +1,72 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.comment-card {
+    &--wrapper{
+        width: 100%;
+        @include desktop{
+            padding-right:$tablet-gutter;
+        }
+    }
+
+    display:flex;
+        flex-direction: row;
+        margin: $tablet-gutter 0 ;
+    
+        @include desktop{
+            margin-left:0;
+        }
+        
+    &__avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $secondary-silver;
+        margin-right: $mobile-margin;
+        flex-shrink: 0;
+        
+        @include desktop {
+            margin: $tablet-gutter calc($desktop-column/2) $tablet-gutter calc($tablet-gutter/2);
+        }
+    }
+
+    &__top {
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+        &__name {
+            font-weight: 600;
+            margin:0;
+        }
+
+        &__date {
+            color:$primary-silver;
+            margin:0;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        margin:calc($mobile-margin/2) 0 0 0;
+    }
+
+    &__delete-icon{
+        margin-top:calc($mobile-margin/2);
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &--divider{
+        @include divider;
+
+        @include tablet{
+            margin: $tablet-gutter auto $mobile-margin auto;
+            @include desktop{
+                margin: 0 auto;
+            }
+        }
+    }
+}

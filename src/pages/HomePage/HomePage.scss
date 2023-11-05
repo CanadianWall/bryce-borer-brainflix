@@ -1,0 +1,25 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.video-content {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+        flex-direction: row;
+    }
+
+    &__main{
+        margin:0 $mobile-margin;
+
+        @include tablet{
+            margin:0 $tablet-margin;
+        }
+
+        @include desktop {
+            width:60%;
+            margin: 0 0 0 $desktop-margin;
+            border-right: 1.5px solid $secondary-silver;
+        }
+    }
+}

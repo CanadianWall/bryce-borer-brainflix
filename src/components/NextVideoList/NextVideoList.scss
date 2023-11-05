@@ -1,0 +1,37 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.video-list {
+    margin: 0 $mobile-margin;
+
+    @include tablet {
+        margin: 0 $tablet-margin;
+
+        @include desktop {
+            margin: 0 $desktop-margin 0 $tablet-gutter;
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        color: $primary-silver;
+
+        @include tablet {
+            margin: $tablet-gutter 0;
+        }
+    }
+
+    &--divider {
+        height: 1.5px;
+        width: 100%;
+        background-color: $secondary-silver;
+
+        @include tablet {
+            width: 100%;
+        }
+
+        @include desktop {
+            background-color: $primary-light;
+        }
+    }
+}

@@ -1,0 +1,97 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use 'fonts';
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-regular;
+    color: $primary-dark;
+}
+
+//Page Header
+h1 {
+    font-size: 24px;
+    line-height: 32px;
+    font-family: $font-demi;
+
+    @include tablet {
+        font-size: 33px;
+        line-height: 44px;
+        font-family: $font-bold;
+    }
+}
+
+// Section Header
+h2 {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: $font-bold;
+    margin: 0;
+
+    @include tablet {
+        font-size: 12px;
+        line-height: 20px;
+        font-family: $font-bold;
+    }
+}
+
+// Subheader
+h3 {
+    font-size: 13px;
+    line-height: 18px;
+    font-family: $font-demi;
+    margin: calc($mobile-margin/2) 0;
+
+    @include tablet {
+        font-size: 14px;
+        line-height: 22px;
+        font-family: $font-demi;
+    }
+}
+
+// Body Copy
+p,
+textarea,
+textarea::placeholder {
+    font-size: 13px;
+    line-height: 18px;
+    font-family: $font-regular;
+    color: $secondary-dark;
+
+    @include tablet {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+label{
+    @extend p;
+    font-family: $font-demi;
+    color:$primary-silver;
+}
+
+
+// Buttons
+h4 {
+    font-size: 10px;
+    line-height: 20px;
+    font-family: $font-bold;
+
+    @include tablet {
+        font-size: 12px;
+        line-height: 20px;
+        font-family: $font-bold;
+    }
+}
+
+// Grayed text
+h5 {
+    @extend p;
+    color: $primary-silver;
+    margin: calc($mobile-margin/2) 0;
+    font-weight: 400;
+}

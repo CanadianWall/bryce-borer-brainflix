@@ -1,0 +1,102 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.description--wrapper {
+    margin: 0;
+
+    @include desktop {
+        width: 95%;
+    }
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    @include tablet {
+        justify-content: space-between;
+    }
+
+    &--title {
+        @include tablet {
+            margin: $tablet-margin 0 0 0;
+        }
+    }
+
+    &__author-and-date {
+        margin-right: 30%;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            width: 40%;
+            justify-content: flex-start;
+            margin: 0;
+        }
+
+        &--author {
+            @include tablet {
+                margin-right: $tablet-margin;
+            }
+        }
+    }
+
+    &__viewsAndLikes {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+
+        &__views {
+            display: flex;
+
+            &--icon {
+                margin-right: $mobile-margin;
+            }
+        }
+
+        &__likes {
+            display: flex;
+
+            &--icon {
+                margin-right: $mobile-margin;
+
+                @include tablet {
+                    margin-left: $tablet-margin;
+                }
+            }
+        }
+    }
+
+    &__content {
+        margin: $mobile-margin 0;
+
+        @include tablet {
+            margin: $mobile-margin 0;
+
+            @include desktop {
+                margin: $desktop-gutter 0;
+            }
+        }
+    }
+
+    &--divider {
+        @include divider;
+
+        @include desktop {
+            width: 105.3%;
+        }
+
+        &--mobile-only {
+            @include divider;
+
+            @include tablet {
+                display: none;
+            }
+        }
+    }
+}

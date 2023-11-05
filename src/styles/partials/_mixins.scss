@@ -1,0 +1,43 @@
+@use './variables' as *;
+
+@mixin tablet {
+    @media (min-width: $tablet-width) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop-width) {
+        @content;
+    }
+}
+
+@mixin divider {
+    height: 1.5px;
+    width: 100%;
+    background-color: $secondary-silver;
+    margin: 0 auto;
+}
+
+@mixin textbox {
+    resize: none;
+    height: 37px;
+    width: calc(100% - $tablet-margin);
+    border: 1.5px solid $secondary-silver;
+    border-radius: 5px;
+    background-color: $secondary-light;
+    line-height: 35px;
+    padding-left: 15px;
+
+    &::placeholder {
+        line-height: 35px;
+    }
+
+    @include tablet {
+        height: 37px;
+        width: calc(100% - $tablet-margin);
+        padding: 0;
+        padding-left: 15px;
+        vertical-align: middle;
+    }
+}
