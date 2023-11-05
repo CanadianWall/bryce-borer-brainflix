@@ -3,6 +3,7 @@
 
 .comment-card {
     &--wrapper{
+        width: 100%;
         @include desktop{
             padding-right:$tablet-gutter;
         }
@@ -51,11 +52,15 @@
         margin:calc($mobile-margin/2) 0 0 0;
     }
 
+    &__delete-icon{
+        margin-top:calc($mobile-margin/2);
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
     &--divider{
-        height: 1.5px;
-        width: 100%;
-        background-color: $secondary-silver;
-        margin: 0 auto;
+        @include divider;
 
         @include tablet{
             margin: $tablet-gutter auto $mobile-margin auto;

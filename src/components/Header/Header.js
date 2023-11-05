@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Header.scss'
 import murugeAvatar from "../../assets/images/Mohan-muruge.jpg"
 import playIcon from "../../assets/icons/play.svg"
@@ -7,14 +8,16 @@ import searchIcon from "../../assets/icons/search.svg"
 function Header() {
     return (
         <header className="header">
-            <div className="header__logo">
-                <div className="header__logo--wrapper">
-                    <img className="header__logo--play"
-                        src={playIcon}
-                        alt="play icon" />
+            <Link to="/" className="header--link">
+                <div className="header__logo">
+                    <div className="header__logo--wrapper">
+                        <img className="header__logo--play"
+                            src={playIcon}
+                            alt="play icon" />
+                    </div>
+                    <h2 className="header__logo--title">BrainFlix</h2>
                 </div>
-                <h2 className="header__logo--title">BrainFlix</h2>
-            </div>
+            </Link>
 
             <div className="header__content">
                 <div className="header__content__search">
@@ -30,18 +33,20 @@ function Header() {
                 </div>
 
                 <div className="header__content__upload">
-                    <button type="submit" className="header__content__upload__button">
-                        <div className="header__content__upload__button--icon-wrapper">
-                        <img className="header__content__upload__button--icon"
-                            src={uploadIcon}
-                            alt="upload button" />
-                        </div>
-                        
-                        <div className="header__content__upload__button--text">
-                            UPLOAD
+                    <Link to="/upload" className="header__content__upload--link">
+                        <button type="submit" className="header__content__upload__button">
+                            <div className="header__content__upload__button--icon-wrapper">
+                                <img className="header__content__upload__button--icon"
+                                    src={uploadIcon}
+                                    alt="upload button" />
+                            </div>
+
+                            <div className="header__content__upload__button--text">
+                                UPLOAD
                             </div>
                         </button>
-                        
+                    </Link>
+
                     <img className="avatar avatar--tablet"
                         src={murugeAvatar}
                         alt="mohan muruge" />

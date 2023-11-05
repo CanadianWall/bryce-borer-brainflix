@@ -7,9 +7,17 @@
     margin: $mobile-margin 0;
     align-items: center;
 
+    &:hover{
+        cursor: pointer;
+    }
+
     @include tablet{
         height: 65px;
         margin: $tablet-gutter 0;
+    }
+    &--link{
+        text-decoration: none;
+        color: $primary-dark;
     }
 
     &__image {

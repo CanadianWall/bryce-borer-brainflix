@@ -1,36 +1,24 @@
 import './App.scss';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header/Header';
-import MainVideo from './components/MainVideo/MainVideo';
-import Description from './components/Description/Description';
-import NextVideoList from './components/NextVideoList/NextVideoList';
-import CommentSection from './components/CommentSection/CommentSection';
-import mainVideoDataList from './data/video-details.json';
-import { useState } from 'react';
-
+import HomePage from './pages/HomePage/HomePage';
+import UploadPage from './pages/UploadPage/UploadPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 function App() {
-  const [mainVideoData, setMainVideo] = useState(mainVideoDataList[0])
-  const changeMainVideoData = (id) => {
-    const newVideo = mainVideoDataList.find((video) => video.id === id)
-    setMainVideo(newVideo)
-  }
 
   return (
-    <div className="App">
+    <BrowserRouter>
       <Header />
-      <MainVideo mainVideoData={mainVideoData} />
-      <div className="video-content">
-        <div className="video-content__main">
-          <Description mainVideoData={mainVideoData} />
-          <CommentSection mainVideoData={mainVideoData.comments} />
-        </div>
-        <div className="video-content__next">
-          <NextVideoList changeMainVideoData={changeMainVideoData} mainVideoId={mainVideoData.id} />
-        </div>
-      </div>
-    </div>
+      <Routes>
+        <Route path="/" element={<Navigate to ='/videos'  />} />
+        <Route path="videos" element={<HomePage />} />
+        <Route path="upload" element={<UploadPage />} />
+        <Route path="videos/:videoId" element={<HomePage />}/>
+        <Route path="*" element={<NotFoundPage />} ></Route>
+      </Routes>
+    </BrowserRouter>
   );
-
 }
 
 export default App;

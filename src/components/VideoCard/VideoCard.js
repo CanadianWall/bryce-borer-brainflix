@@ -1,12 +1,13 @@
 import './VideoCard.scss'
+import { Link } from 'react-router-dom'
 
 function VideoCard(props) {
-  return (
-      <div className="video-card"
-        onClick={() => props.changeMainVideoData(props.videoCardId)}
-      >
-        <img className="video-card__image" src={props.videoImage} />
+  const to = '/videos/' + props.videoCardId;
 
+  return (
+    <Link to= {to} className="video-card--link">
+      <div className="video-card">
+        <img className="video-card__image" src={props.videoImage} alt={props.videoTitle} />
         <div className="video-card__title-and-channel">
           <h3 className="video-card__title-and-channel__title">
             {props.videoTitle}
@@ -17,6 +18,7 @@ function VideoCard(props) {
           </p>
         </div>
       </div>
+      </Link>
   );
 }
 
