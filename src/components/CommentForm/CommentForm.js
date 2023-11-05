@@ -3,11 +3,8 @@ import commentIcon from "../../assets/icons/add_comment.svg"
 import murugeAvatar from "../../assets/images/Mohan-muruge.jpg"
 import axios from 'axios';
 import { API_URL, API_KEY } from '../../data/utils';
-import { useEffect, useState } from 'react';
-import CommentList from '../CommentList/CommentList';
 
 function CommentForm(props) {
-    // const [comments, setComments] = useState(props.mainVideo);
 
 const submitComment = (event) => {
         event.preventDefault();
@@ -19,14 +16,20 @@ const submitComment = (event) => {
 
         axios.post(`${API_URL}videos/${props.mainVideo.id}/comments${API_KEY}`, newComment)
         .then((response) => {
+            // copies the comments with new comment appended
             const mainVideoTemp = [...props.mainVideo.comments, response.data]
+
+            // copies mainVideo object with new comment
             const mainVideoTempObj = {
                 ...props.mainVideo
             }
+
             mainVideoTempObj.comments = mainVideoTemp
             props.setMainVideo(mainVideoTempObj)           
         })
         .catch((error) => console.log(error))
+
+        event.target.content.value = ''
     }
   
 

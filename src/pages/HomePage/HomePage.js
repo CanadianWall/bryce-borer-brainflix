@@ -56,7 +56,7 @@ function HomePage() {
                 <div className="video-content__main">
                     <Description mainVideo={mainVideo} />
                     <CommentForm mainVideo={mainVideo} setMainVideo={setMainVideo}/>
-                    <CommentList mainVideo={mainVideo.comments} />
+                    <CommentList mainVideo={mainVideo} setMainVideo={setMainVideo} />
 
                 </div>
                 <div className="video-content__next">
