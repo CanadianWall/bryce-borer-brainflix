@@ -2,7 +2,7 @@ import './HomePage.scss';
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { API_URL, API_KEY } from '../../data/utils';
+import { API_URL_NEW, API_KEY } from '../../data/utils';
 import MainVideo from '../../components/MainVideo/MainVideo';
 import Description from '../../components/Description/Description';
 import NextVideoList from '../../components/NextVideoList/NextVideoList';
@@ -17,25 +17,32 @@ function HomePage() {
 
     const getVideoId = (id) => {
         axios
-            .get(`${API_URL}videos/${id}${API_KEY}`)
-            .then((response) => {
-                setMainVideo(response.data)
+            // .get(`${API_URL}videos/${id}${API_KEY}`)
+            .get(`${API_URL_NEW}videos/${id}`)
+            .then((res) => {
+                setMainVideo(res.data)
+                console.log("set main video: ", res)
                 setHasLoaded(true)
             })
     }
     useEffect(() => {
+
         if (videoId) {
             getVideoId(videoId)
-        } else {
+        } 
+        else {
+            //************how do I made this dynamic and not hard-coded?***********
             getVideoId("84e96018-4022-434e-80bf-000ce4cd12b8")
         }
-    }, [videoId]);
+    }, [videoId, hasLoaded]);
 
     const fetchAllVideos = () =>
         axios
-            .get(`${API_URL}videos${API_KEY}`)
-            .then((response) => {
-                setVideos(response);
+            .get(`${API_URL_NEW}videos`)
+            .then((res) => {
+                
+                setVideos(res.data);
+                console.log("fetch video: ", res.data)
             });
 
     useEffect(() => {
@@ -44,6 +51,7 @@ function HomePage() {
 
     const changeMainVideo = (id) => {
         const newVideo = videos.find((video) => video.id === id)
+        
         setMainVideo(newVideo)
     }
 

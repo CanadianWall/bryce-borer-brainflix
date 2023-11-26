@@ -2,7 +2,7 @@ import './CommentForm.scss'
 import commentIcon from "../../assets/icons/add_comment.svg"
 import murugeAvatar from "../../assets/images/Mohan-muruge.jpg"
 import axios from 'axios';
-import { API_URL, API_KEY } from '../../data/utils';
+import { API_URL, API_KEY, API_URL_NEW } from '../../data/utils';
 
 function CommentForm(props) {
 
@@ -14,7 +14,7 @@ const submitComment = (event) => {
             comment: event.target.content.value
         }
 
-        axios.post(`${API_URL}videos/${props.mainVideo.id}/comments${API_KEY}`, newComment)
+        axios.post(`${API_URL_NEW}videos/${props.mainVideo.id}/comments`, newComment)
         .then((response) => {
             // copies the comments with new comment appended
             const mainVideoTemp = [...props.mainVideo.comments, response.data]

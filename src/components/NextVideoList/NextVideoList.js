@@ -2,7 +2,7 @@ import './NextVideoList.scss'
 import VideoCard from '../VideoCard/VideoCard'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
-import { API_URL, API_KEY } from '../../data/utils';
+import { API_URL_NEW } from '../../data/utils';
 
 function NextVideoList(props) {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -10,7 +10,7 @@ function NextVideoList(props) {
 
   const fetchAllVideos = () =>
     axios
-      .get(`${API_URL}videos${API_KEY}`)
+      .get(`${API_URL_NEW}videos`)
       .then((response) => {
         setVideos(response);
         setHasLoaded(true)
