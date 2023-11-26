@@ -13,36 +13,41 @@ function HomePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const [videos, setVideos] = useState();
     const [mainVideo, setMainVideo] = useState();
-    const { videoId } = useParams();
+    let { videoId } = useParams();
 
     const getVideoId = (id) => {
         axios
-            // .get(`${API_URL}videos/${id}${API_KEY}`)
             .get(`${API_URL_NEW}videos/${id}`)
             .then((res) => {
                 setMainVideo(res.data)
-                console.log("set main video: ", res)
                 setHasLoaded(true)
             })
     }
+
     useEffect(() => {
 
         if (videoId) {
             getVideoId(videoId)
-        } 
-        else {
-            //************how do I made this dynamic and not hard-coded?***********
-            getVideoId("84e96018-4022-434e-80bf-000ce4cd12b8")
         }
-    }, [videoId, hasLoaded]);
+
+        else {
+            axios
+                .get(`${API_URL_NEW}videos`)
+                .then((res) => {
+                    videoId = res.data[0].id
+                })
+                .then(()=>{
+                    getVideoId(videoId)
+                })
+        }
+    }, [videoId]);
 
     const fetchAllVideos = () =>
         axios
             .get(`${API_URL_NEW}videos`)
             .then((res) => {
-                
+
                 setVideos(res.data);
-                console.log("fetch video: ", res.data)
             });
 
     useEffect(() => {
@@ -51,7 +56,7 @@ function HomePage() {
 
     const changeMainVideo = (id) => {
         const newVideo = videos.find((video) => video.id === id)
-        
+
         setMainVideo(newVideo)
     }
 
@@ -63,7 +68,7 @@ function HomePage() {
             <div className="video-content">
                 <div className="video-content__main">
                     <Description mainVideo={mainVideo} />
-                    <CommentForm mainVideo={mainVideo} setMainVideo={setMainVideo}/>
+                    <CommentForm mainVideo={mainVideo} setMainVideo={setMainVideo} />
                     <CommentList mainVideo={mainVideo} setMainVideo={setMainVideo} />
 
                 </div>
