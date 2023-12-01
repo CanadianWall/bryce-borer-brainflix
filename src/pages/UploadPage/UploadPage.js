@@ -2,6 +2,8 @@ import './UploadPage.scss';
 import uploadPreview from "../../assets/images/Upload-video-preview.jpg"
 import publishIcon from "../../assets/icons/publish.svg"
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { API_URL_NEW, API_KEY } from '../../data/utils';
 
 function UploadPage() {
     let navigateFunction = useNavigate();
@@ -9,10 +11,42 @@ function UploadPage() {
         alert("Video Uploaded!")
         navigateFunction('/')
     }
+    const submitUploadVideo = (event) => {
+        event.preventDefault();
+
+        const newVideo = {
+            name: "Bryce Borer",
+            comment: event.target.content.value,
+
+            title: event.target.titleContent.value,
+            description: event.target.descriptionContent.value,
+            path:'../../assets/images/Upload-video-preview.jpg'
+        }
+
+        axios.post(`${API_URL_NEW}upload`, newVideo)
+            .then((response) => {
+                // copies the comments with new comment appended
+                // const mainVideoTemp = [...props.mainVideo.comments, response.data]
+
+                // // copies mainVideo object with new comment
+                // const mainVideoTempObj = {
+                //     ...props.mainVideo
+                // }
+
+                // mainVideoTempObj.comments = mainVideoTemp
+                // props.setMainVideo(mainVideoTempObj)
+            })
+            .catch((error) => console.log(error))
+
+        event.target.content.value = ''
+    }
     return (
         <>
             <div className="upload--divider"></div>
-            <section className="upload">
+            <form 
+            className="upload"
+            onSubmit={submitUploadVideo}>
+                
                 <h1 className="upload--title">Upload Video</h1>
                 <div className="upload--divider--tablet"></div>
                 <div className="upload--main-wrapper">
@@ -31,9 +65,9 @@ function UploadPage() {
                                 TITLE YOUR VIDEO<br />
                             </label>
                             <textarea className="upload__form__title--input"
-                                name="content"
+                                name="titleContent"
                                 placeholder="Add a title to your video"
-                                id="content" />
+                                id="titleContent" />
                         </div>
 
                         <div className='upload__form__description--wrapper'>
@@ -43,18 +77,18 @@ function UploadPage() {
                                 ADD A VIDEO DESCRIPTION<br />
                             </label>
                             <textarea className="upload__form__description--input"
-                                name="content"
+                                name="descriptionContent"
                                 placeholder="Add a description to your video"
-                                id="content" />
+                                id="descriptionContent" />
                         </div>
                     </div>
                 </div>
                 <div className="upload--divider--tablet"></div>
                 <div className="upload__button">
-                    <button 
-                    type="submit" 
-                    className="upload__button__publish" 
-                    onClick={handleRedirect}>
+                    <button
+                        type="submit"
+                        className="upload__button__publish"
+                        onClick={handleRedirect}>
                         <div className="upload__button__publish--icon-wrapper">
                             <img className="upload__button__publish--icon"
                                 src={publishIcon}
@@ -72,7 +106,7 @@ function UploadPage() {
                         </h3>
                     </button>
                 </div>
-            </section>
+            </form>
         </>
     )
 }

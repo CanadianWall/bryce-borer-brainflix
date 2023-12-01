@@ -46,7 +46,6 @@ function HomePage() {
         axios
             .get(`${API_URL_NEW}videos`)
             .then((res) => {
-
                 setVideos(res.data);
             });
 
