@@ -1,59 +1,48 @@
 import './UploadPage.scss';
-import uploadPreview from "../../assets/images/Upload-video-preview.jpg"
 import publishIcon from "../../assets/icons/publish.svg"
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { API_URL_NEW, API_KEY } from '../../data/utils';
+import { API_URL_NEW } from '../../data/utils';
 
 function UploadPage() {
     let navigateFunction = useNavigate();
-    const handleRedirect = () => {
-        alert("Video Uploaded!")
-        navigateFunction('/')
-    }
+
     const submitUploadVideo = (event) => {
         event.preventDefault();
+        const title = event.target.titleContent.value
+        const description = event.target.descriptionContent.value
 
         const newVideo = {
-            name: "Bryce Borer",
-            comment: event.target.content.value,
-
-            title: event.target.titleContent.value,
-            description: event.target.descriptionContent.value,
-            path:'../../assets/images/Upload-video-preview.jpg'
+            title: title,
+            channel: "Bryce's Channel",
+            image: 'http://localhost:8080/images/upload.jpg',
+            description: description
         }
 
         axios.post(`${API_URL_NEW}upload`, newVideo)
-            .then((response) => {
-                // copies the comments with new comment appended
-                // const mainVideoTemp = [...props.mainVideo.comments, response.data]
-
-                // // copies mainVideo object with new comment
-                // const mainVideoTempObj = {
-                //     ...props.mainVideo
-                // }
-
-                // mainVideoTempObj.comments = mainVideoTemp
-                // props.setMainVideo(mainVideoTempObj)
+            .then((res) => {
+                alert(res.data)
+                navigateFunction('/')
             })
             .catch((error) => console.log(error))
 
-        event.target.content.value = ''
+        event.target.titleContent.value = ''
+        event.target.descriptionContent.value = ''
     }
     return (
         <>
             <div className="upload--divider"></div>
-            <form 
-            className="upload"
-            onSubmit={submitUploadVideo}>
-                
+            <form
+                className="upload"
+                onSubmit={submitUploadVideo}>
+
                 <h1 className="upload--title">Upload Video</h1>
                 <div className="upload--divider--tablet"></div>
                 <div className="upload--main-wrapper">
                     <div className="upload--img-wrapper">
                         <h3 className="upload__subtitle">VIDEO THUMBNAIL</h3>
                         <img className="upload__preview-img"
-                            src={uploadPreview}
+                            src={'http://localhost:8080/images/upload.jpg'}
                             alt="upload preview" />
                     </div>
 
@@ -88,7 +77,8 @@ function UploadPage() {
                     <button
                         type="submit"
                         className="upload__button__publish"
-                        onClick={handleRedirect}>
+                    // onClick={handleRedirect}
+                    >
                         <div className="upload__button__publish--icon-wrapper">
                             <img className="upload__button__publish--icon"
                                 src={publishIcon}
