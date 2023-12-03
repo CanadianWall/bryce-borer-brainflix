@@ -77,7 +77,6 @@ function UploadPage() {
                     <button
                         type="submit"
                         className="upload__button__publish"
-                    // onClick={handleRedirect}
                     >
                         <div className="upload__button__publish--icon-wrapper">
                             <img className="upload__button__publish--icon"

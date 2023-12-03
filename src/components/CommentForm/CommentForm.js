@@ -2,7 +2,7 @@ import './CommentForm.scss'
 import commentIcon from "../../assets/icons/add_comment.svg"
 import murugeAvatar from "../../assets/images/Mohan-muruge.jpg"
 import axios from 'axios';
-import { API_URL, API_KEY, API_URL_NEW } from '../../data/utils';
+import { API_URL_NEW } from '../../data/utils';
 
 function CommentForm(props) {
 

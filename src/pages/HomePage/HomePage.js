@@ -2,7 +2,7 @@ import './HomePage.scss';
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { API_URL_NEW, API_KEY } from '../../data/utils';
+import { API_URL_NEW } from '../../data/utils';
 import MainVideo from '../../components/MainVideo/MainVideo';
 import Description from '../../components/Description/Description';
 import NextVideoList from '../../components/NextVideoList/NextVideoList';
