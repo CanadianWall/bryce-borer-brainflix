@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { API_URL_NEW } from '../../data/utils';
 
+
 function NextVideoList(props) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [videos, setVideos] = useState(props);
@@ -11,6 +12,7 @@ function NextVideoList(props) {
   const fetchAllVideos = () =>
     axios
       .get(`${API_URL_NEW}videos`)
+
       .then((response) => {
         setVideos(response);
         setHasLoaded(true)

@@ -1,4 +1,5 @@
 import './UploadPage.scss';
+
 import publishIcon from "../../assets/icons/publish.svg"
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -42,7 +43,7 @@ function UploadPage() {
                     <div className="upload--img-wrapper">
                         <h3 className="upload__subtitle">VIDEO THUMBNAIL</h3>
                         <img className="upload__preview-img"
-                            src={'http://localhost:8080/images/upload.jpg'}
+                            src={uploadPreview}
                             alt="upload preview" />
                     </div>
 
@@ -78,7 +79,7 @@ function UploadPage() {
                         type="submit"
                         className="upload__button__publish"
                     >
-                        <div className="upload__button__publish--icon-wrapper">
+         <div className="upload__button__publish--icon-wrapper">
                             <img className="upload__button__publish--icon"
                                 src={publishIcon}
                                 alt="upload button" />
@@ -95,7 +96,9 @@ function UploadPage() {
                         </h3>
                     </button>
                 </div>
+
             </form>
+
         </>
     )
 }

@@ -13,6 +13,7 @@ function HomePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const [videos, setVideos] = useState();
     const [mainVideo, setMainVideo] = useState();
+
     let { videoId } = useParams();
 
     const getVideoId = (id) => {
@@ -55,7 +56,6 @@ function HomePage() {
 
     const changeMainVideo = (id) => {
         const newVideo = videos.find((video) => video.id === id)
-
         setMainVideo(newVideo)
     }
 

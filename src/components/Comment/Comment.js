@@ -1,14 +1,16 @@
+
 import { API_URL_NEW, timeSince } from '../../data/utils';
 import './Comment.scss'
 import deleteIcon from "../../assets/icons/icon-delete.svg"
 import axios from 'axios';
-
 
 function Comment(props) {
 
     const deleteComment = () => {
 
         axios.delete(`${API_URL_NEW}videos/${props.mainVideo.id}/comments/${props.commentId}`)
+
+
         .then((response) => {
             // copies the comments with new comment appended
             const commentFilter = props.mainVideo.comments.filter((e) => {
