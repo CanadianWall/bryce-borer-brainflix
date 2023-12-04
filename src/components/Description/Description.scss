@@ -69,6 +69,11 @@
                     margin-left: $tablet-margin;
                 }
             }
+            &--button{
+                background-color: $primary-light;
+                border:none;
+
+            }
         }
     }
 

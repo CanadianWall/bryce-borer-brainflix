@@ -1,16 +1,23 @@
 import './UploadPage.scss';
+import { Link } from 'react-router-dom'
 import publishIcon from "../../assets/icons/publish.svg"
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { API_URL_NEW } from '../../data/utils';
 
-function UploadPage() {
+function UploadPage(props) {
     let navigateFunction = useNavigate();
+    document.title = 'Upload Page';
 
     const submitUploadVideo = (event) => {
         event.preventDefault();
         const title = event.target.titleContent.value
         const description = event.target.descriptionContent.value
+
+        if (title || description === ""){
+            alert("Title and Description must not be empty!");
+            return false;
+        }else{
 
         const newVideo = {
             title: title,
@@ -28,6 +35,7 @@ function UploadPage() {
 
         event.target.titleContent.value = ''
         event.target.descriptionContent.value = ''
+    }
     }
     return (
         <>
@@ -77,7 +85,6 @@ function UploadPage() {
                     <button
                         type="submit"
                         className="upload__button__publish"
-                    // onClick={handleRedirect}
                     >
                         <div className="upload__button__publish--icon-wrapper">
                             <img className="upload__button__publish--icon"
@@ -89,12 +96,15 @@ function UploadPage() {
                             PUBLISH
                         </h3>
                     </button>
-                    <button type="submit" className="upload__button__cancel">
+                    <Link to="/" className="upload__button__cancel--link">
+                        <button type="submit" className="upload__button__cancel">
 
-                        <h3 className="upload__button__cancel--text">
-                            CANCEL
-                        </h3>
-                    </button>
+                            <h3 className="upload__button__cancel--text">
+                                CANCEL
+                            </h3>
+                        </button>
+                    </Link>
+
                 </div>
             </form>
         </>
