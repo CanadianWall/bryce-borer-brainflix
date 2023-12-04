@@ -1,14 +1,33 @@
 import './Description.scss'
 import likesIcon from "../../assets/icons/likes.svg"
+import increaseLikesIcon from "../../assets/icons/icon-like.svg"
 import viewsIcon from "../../assets/icons/views.svg"
 import { timeSince } from '../../data/utils';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { API_URL_NEW } from '../../data/utils';
 
 function Description(props) {
+  
 
   const { mainVideo } = props
+  const [likesNum, setLikesNum] = useState();
+
+  useEffect(() => {
+    setLikesNum(mainVideo.likes)
+  }, [mainVideo]);
+
+  const likeVideo = () =>
+  axios
+      .put(`${API_URL_NEW}videos/${mainVideo.id}/likes`)
+      .then((res) => {
+            setLikesNum(res.data)
+      });
+
   return (
     <div className="description--wrapper">
       <h1 className="description--title">{mainVideo.title}</h1>
+      
       <div className="description--divider--mobile-only"></div>
       <div className="description">
 
@@ -26,10 +45,17 @@ function Description(props) {
           </h5>
 
           <h5 className="description__viewsAndLikes__likes">
+            
             <img className="description__viewsAndLikes__likes--icon"
               src={likesIcon}
               alt="likes icon" />
-            {mainVideo.likes}
+              
+            {likesNum}
+            <button onClick={likeVideo} className="description__viewsAndLikes__likes--button">
+      <img className="description__increase-likes-icon"
+              src={increaseLikesIcon}
+              alt="increase likes icon" />
+      </button>
           </h5>
         </div>
       </div>

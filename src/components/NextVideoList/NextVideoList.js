@@ -3,6 +3,9 @@ import VideoCard from '../VideoCard/VideoCard'
 
 function NextVideoList(props) {
 
+  if (!props.videos) {
+    return null
+  } else {
     return (
       <section className="video-list">
         <div className="video-list--divider"></div>
@@ -21,6 +24,7 @@ function NextVideoList(props) {
         ))}
       </section>
     );
+  }
 }
 
 export default NextVideoList;

@@ -19,8 +19,6 @@ function UploadPage(props) {
             return false;
         }else{
 
-        
-
         const newVideo = {
             title: title,
             channel: "Bryce's Channel",

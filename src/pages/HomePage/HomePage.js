@@ -11,17 +11,17 @@ import CommentList from '../../components/CommentList/CommentList';
 
 function HomePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
+    const [hasLoaded2, setHasLoaded2] = useState(false);
     const [videos, setVideos] = useState();
     const [mainVideo, setMainVideo] = useState();
     const [headTitle, setHeadTitle] = useState("Brainflix");
-    
     let { videoId } = useParams();
 
     useEffect(() => {
         // This will run when the page first loads and whenever the title changes
         document.title = headTitle;
-        window.scrollTo({top: 0, left: 0, behavior: 'instant'});
-      }, [headTitle]);
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, [headTitle]);
 
     const getVideoId = (id) => {
         axios
@@ -45,7 +45,7 @@ function HomePage() {
                 .then((res) => {
                     videoId = res.data[0].id
                 })
-                .then(()=>{
+                .then(() => {
                     getVideoId(videoId)
                 })
         }
@@ -56,6 +56,7 @@ function HomePage() {
             .get(`${API_URL_NEW}videos`)
             .then((res) => {
                 setVideos(res.data);
+                
             });
 
     useEffect(() => {
@@ -64,27 +65,30 @@ function HomePage() {
 
     const changeMainVideo = (id) => {
         const newVideo = videos.find((video) => video.id === id)
-        setMainVideo(newVideo)    
+        setMainVideo(newVideo)
+        setHasLoaded2(true)
     }
 
-    if (!hasLoaded) { return null }
+    if (!hasLoaded && !hasLoaded2) {
+        return null
+    } else {
+        return (
+            <div className="HomePage">
+                <MainVideo mainVideo={mainVideo} />
+                <div className="video-content">
+                    <div className="video-content__main">
+                        <Description mainVideo={mainVideo} />
+                        <CommentForm mainVideo={mainVideo} setMainVideo={setMainVideo} />
+                        <CommentList mainVideo={mainVideo} setMainVideo={setMainVideo} />
 
-    return (
-        <div className="HomePage">
-            <MainVideo mainVideo={mainVideo} />
-            <div className="video-content">
-                <div className="video-content__main">
-                    <Description mainVideo={mainVideo} />
-                    <CommentForm mainVideo={mainVideo} setMainVideo={setMainVideo} />
-                    <CommentList mainVideo={mainVideo} setMainVideo={setMainVideo} />
-
-                </div>
-                <div className="video-content__next">
-                    <NextVideoList changeMainVideo={changeMainVideo} mainVideoId={mainVideo.id} videos={videos} setVideos={setVideos} />
+                    </div>
+                    <div className="video-content__next">
+                        <NextVideoList changeMainVideo={changeMainVideo} mainVideoId={mainVideo.id} videos={videos} setVideos={setVideos} />
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default HomePage
