@@ -2,7 +2,7 @@ import './HomePage.scss';
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { API_URL, API_KEY } from '../../data/utils';
+import { API_URL_NEW } from '../../data/utils';
 import MainVideo from '../../components/MainVideo/MainVideo';
 import Description from '../../components/Description/Description';
 import NextVideoList from '../../components/NextVideoList/NextVideoList';
@@ -13,29 +13,40 @@ function HomePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const [videos, setVideos] = useState();
     const [mainVideo, setMainVideo] = useState();
-    const { videoId } = useParams();
+    let { videoId } = useParams();
 
     const getVideoId = (id) => {
         axios
-            .get(`${API_URL}videos/${id}${API_KEY}`)
-            .then((response) => {
-                setMainVideo(response.data)
+            .get(`${API_URL_NEW}videos/${id}`)
+            .then((res) => {
+                setMainVideo(res.data)
                 setHasLoaded(true)
             })
     }
+
     useEffect(() => {
+
         if (videoId) {
             getVideoId(videoId)
-        } else {
-            getVideoId("84e96018-4022-434e-80bf-000ce4cd12b8")
+        }
+
+        else {
+            axios
+                .get(`${API_URL_NEW}videos`)
+                .then((res) => {
+                    videoId = res.data[0].id
+                })
+                .then(()=>{
+                    getVideoId(videoId)
+                })
         }
     }, [videoId]);
 
     const fetchAllVideos = () =>
         axios
-            .get(`${API_URL}videos${API_KEY}`)
-            .then((response) => {
-                setVideos(response);
+            .get(`${API_URL_NEW}videos`)
+            .then((res) => {
+                setVideos(res.data);
             });
 
     useEffect(() => {
@@ -44,6 +55,7 @@ function HomePage() {
 
     const changeMainVideo = (id) => {
         const newVideo = videos.find((video) => video.id === id)
+
         setMainVideo(newVideo)
     }
 
@@ -55,7 +67,7 @@ function HomePage() {
             <div className="video-content">
                 <div className="video-content__main">
                     <Description mainVideo={mainVideo} />
-                    <CommentForm mainVideo={mainVideo} setMainVideo={setMainVideo}/>
+                    <CommentForm mainVideo={mainVideo} setMainVideo={setMainVideo} />
                     <CommentList mainVideo={mainVideo} setMainVideo={setMainVideo} />
 
                 </div>

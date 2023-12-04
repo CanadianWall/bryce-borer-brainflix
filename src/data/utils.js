@@ -1,4 +1,5 @@
 export const API_URL = 'https://project-2-api.herokuapp.com/';
+export const API_URL_NEW = 'http://localhost:8080/';
 export const API_KEY = '?api_key=cd31aaaa-5c5c-4640-b6a0-97d0bccb3014';
 
 export function timeSince(date) {

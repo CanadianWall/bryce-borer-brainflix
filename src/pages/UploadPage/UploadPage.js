@@ -1,25 +1,48 @@
 import './UploadPage.scss';
-import uploadPreview from "../../assets/images/Upload-video-preview.jpg"
 import publishIcon from "../../assets/icons/publish.svg"
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { API_URL_NEW } from '../../data/utils';
 
 function UploadPage() {
     let navigateFunction = useNavigate();
-    const handleRedirect = () => {
-        alert("Video Uploaded!")
-        navigateFunction('/')
+
+    const submitUploadVideo = (event) => {
+        event.preventDefault();
+        const title = event.target.titleContent.value
+        const description = event.target.descriptionContent.value
+
+        const newVideo = {
+            title: title,
+            channel: "Bryce's Channel",
+            image: 'http://localhost:8080/images/upload.jpg',
+            description: description
+        }
+
+        axios.post(`${API_URL_NEW}upload`, newVideo)
+            .then((res) => {
+                alert(res.data)
+                navigateFunction('/')
+            })
+            .catch((error) => console.log(error))
+
+        event.target.titleContent.value = ''
+        event.target.descriptionContent.value = ''
     }
     return (
         <>
             <div className="upload--divider"></div>
-            <section className="upload">
+            <form
+                className="upload"
+                onSubmit={submitUploadVideo}>
+
                 <h1 className="upload--title">Upload Video</h1>
                 <div className="upload--divider--tablet"></div>
                 <div className="upload--main-wrapper">
                     <div className="upload--img-wrapper">
                         <h3 className="upload__subtitle">VIDEO THUMBNAIL</h3>
                         <img className="upload__preview-img"
-                            src={uploadPreview}
+                            src={'http://localhost:8080/images/upload.jpg'}
                             alt="upload preview" />
                     </div>
 
@@ -31,9 +54,9 @@ function UploadPage() {
                                 TITLE YOUR VIDEO<br />
                             </label>
                             <textarea className="upload__form__title--input"
-                                name="content"
+                                name="titleContent"
                                 placeholder="Add a title to your video"
-                                id="content" />
+                                id="titleContent" />
                         </div>
 
                         <div className='upload__form__description--wrapper'>
@@ -43,18 +66,19 @@ function UploadPage() {
                                 ADD A VIDEO DESCRIPTION<br />
                             </label>
                             <textarea className="upload__form__description--input"
-                                name="content"
+                                name="descriptionContent"
                                 placeholder="Add a description to your video"
-                                id="content" />
+                                id="descriptionContent" />
                         </div>
                     </div>
                 </div>
                 <div className="upload--divider--tablet"></div>
                 <div className="upload__button">
-                    <button 
-                    type="submit" 
-                    className="upload__button__publish" 
-                    onClick={handleRedirect}>
+                    <button
+                        type="submit"
+                        className="upload__button__publish"
+                    // onClick={handleRedirect}
+                    >
                         <div className="upload__button__publish--icon-wrapper">
                             <img className="upload__button__publish--icon"
                                 src={publishIcon}
@@ -72,7 +96,7 @@ function UploadPage() {
                         </h3>
                     </button>
                 </div>
-            </section>
+            </form>
         </>
     )
 }
