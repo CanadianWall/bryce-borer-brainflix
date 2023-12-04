@@ -13,13 +13,22 @@ function HomePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const [videos, setVideos] = useState();
     const [mainVideo, setMainVideo] = useState();
+    const [headTitle, setHeadTitle] = useState("Brainflix");
+    
     let { videoId } = useParams();
+
+    useEffect(() => {
+        // This will run when the page first loads and whenever the title changes
+        document.title = headTitle;
+        window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+      }, [headTitle]);
 
     const getVideoId = (id) => {
         axios
             .get(`${API_URL_NEW}videos/${id}`)
             .then((res) => {
                 setMainVideo(res.data)
+                setHeadTitle(res.data.title)
                 setHasLoaded(true)
             })
     }
@@ -55,8 +64,7 @@ function HomePage() {
 
     const changeMainVideo = (id) => {
         const newVideo = videos.find((video) => video.id === id)
-
-        setMainVideo(newVideo)
+        setMainVideo(newVideo)    
     }
 
     if (!hasLoaded) { return null }
@@ -72,7 +80,7 @@ function HomePage() {
 
                 </div>
                 <div className="video-content__next">
-                    <NextVideoList changeMainVideo={changeMainVideo} mainVideoId={mainVideo.id} />
+                    <NextVideoList changeMainVideo={changeMainVideo} mainVideoId={mainVideo.id} videos={videos} setVideos={setVideos} />
                 </div>
             </div>
         </div>

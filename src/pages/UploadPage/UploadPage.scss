@@ -188,6 +188,10 @@
                 color: $secondary-blue;
                 cursor: pointer;
             }
+
+            &--link{
+                text-decoration: none;
+            }
         }
     }
 }
